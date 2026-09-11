@@ -1,0 +1,13 @@
+node_modules
+dist
+.git
+.github
+.claude
+.env
+.env.*
+!.env.example
+zip_version
+*.log
+.DS_Store
+testing-report
+apprunner.yaml
