@@ -1,5 +1,5 @@
 version: 1.0
-runtime: nodejs20
+runtime: nodejs18
 build:
   commands:
     build:
@@ -16,7 +16,7 @@ build:
     - name: VITE_SUPABASE_ANON_KEY
       value: "sb_publishable_5xZ_m_nefjFGAfYTuz3dfw_nNfUmQmy"
 run:
-  runtime-version: 20
+  runtime-version: 18
   command: npm start
   network:
     port: 8080
