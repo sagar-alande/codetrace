@@ -1,0 +1,2 @@
+[functions.search-building-code]
+verify_jwt = true

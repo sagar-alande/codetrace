@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background: #f6f4ee;
+  font-family: 'IBM Plex Sans', system-ui, sans-serif;
+}
+
+:focus-visible {
+  outline: 3px solid #356db2;
+  outline-offset: 3px;
+}
+
+@layer components {
+  /* Faint drafting grid used behind the page margins. */
+  .bp-grid {
+    background-color: #f6f4ee;
+    background-image:
+      linear-gradient(rgba(31, 67, 116, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(31, 67, 116, 0.06) 1px, transparent 1px);
+    background-size: 22px 22px;
+    background-position: -1px -1px;
+  }
+
+  /* Heavier grid + corner registration marks for hero/illustration frames. */
+  .bp-sheet {
+    background-color: #fbfaf6;
+    background-image:
+      linear-gradient(rgba(31, 67, 116, 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(31, 67, 116, 0.08) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  /* Drafting crop marks in the four corners of a card. */
+  .bp-crop {
+    position: relative;
+  }
+  .bp-crop::before,
+  .bp-crop::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-color: #1f4374;
+    border-style: solid;
+    border-width: 0;
+    pointer-events: none;
+  }
+  .bp-crop::before {
+    top: 6px;
+    left: 6px;
+    border-top-width: 1.5px;
+    border-left-width: 1.5px;
+  }
+  .bp-crop::after {
+    bottom: 6px;
+    right: 6px;
+    border-bottom-width: 1.5px;
+    border-right-width: 1.5px;
+  }
+
+  .bp-scanline {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(53, 109, 178, 0.7) 20%,
+      rgba(53, 109, 178, 0.7) 80%,
+      transparent
+    );
+    box-shadow: 0 0 12px 1px rgba(53, 109, 178, 0.45);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}

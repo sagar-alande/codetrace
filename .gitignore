@@ -1,0 +1,13 @@
+node_modules/
+dist/
+.env
+.env.*
+!.env.example
+supabase/.temp/
+**/supabase/.temp/
+*.log
+.DS_Store
+
+# Superseded local snapshot of an earlier build — not part of this app.
+zip_version/
+
