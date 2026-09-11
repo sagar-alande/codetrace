@@ -30,9 +30,6 @@ ENV NODE_ENV=production
 COPY --from=build /app/dist ./dist
 COPY --from=build /app/scripts ./scripts
 
-RUN addgroup -S codetrace && adduser -S codetrace -G codetrace
-USER codetrace
-
 EXPOSE 8080
 ENV PORT=8080
 

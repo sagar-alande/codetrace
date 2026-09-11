@@ -8,8 +8,18 @@ import { readFile, stat } from 'node:fs/promises'
 import { extname, normalize } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
+process.on('uncaughtException', (error) => {
+  console.error('[serve] uncaught exception', error)
+  process.exit(1)
+})
+process.on('unhandledRejection', (error) => {
+  console.error('[serve] unhandled rejection', error)
+  process.exit(1)
+})
+
 const DIST_DIR = new URL('../dist/', import.meta.url)
 const PORT = Number(process.env.PORT) || 4173
+console.log(`[serve] starting, dist=${fileURLToPath(DIST_DIR)} port=${PORT}`)
 
 const MIME_TYPES = {
   '.html': 'text/html; charset=utf-8',
