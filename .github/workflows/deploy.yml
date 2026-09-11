@@ -1,4 +1,4 @@
-name: Build and push to ECR
+name: Build, push, and deploy to ECS Express
 
 on:
   push:
@@ -48,3 +48,17 @@ jobs:
             .
           docker push "$REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
           docker push "$REGISTRY/$ECR_REPOSITORY:latest"
+
+      - name: Redeploy ECS Express service
+        # ECR's `:latest` tag is mutable, so pushing a new image doesn't by
+        # itself move already-running tasks. Re-submitting the same
+        # primary-container config starts a fresh deployment, which re-pulls
+        # `:latest` and rolls the service onto the new image.
+        run: |
+          aws ecs update-express-gateway-service \
+            --service-arn arn:aws:ecs:us-east-1:965237009241:service/codetrace/codetrace \
+            --primary-container '{
+              "image": "${{ steps.ecr-login.outputs.registry }}/${{ env.ECR_REPOSITORY }}:latest",
+              "containerPort": 8080,
+              "awsLogsConfiguration": { "logGroup": "/ecs/codetrace", "logStreamPrefix": "ecs" }
+            }'
