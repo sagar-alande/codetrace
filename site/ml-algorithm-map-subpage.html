@@ -1,0 +1,919 @@
+<div id="mlmap-artifact">
+
+  <div class="mm-header">
+    <div class="mm-badge">Visual Framework Artifact · AIML-501</div>
+    <h2>Machine Learning Algorithm Map</h2>
+    <p>
+      A visual framework that organizes twelve machine learning algorithms by how they learn, which model
+      family they belong to, and where they are used, with a look at how the map was built and what it taught me.
+    </p>
+    <div class="mm-btn-row">
+      <a class="mm-btn mm-btn-primary" href="#infographic-link-coming-soon" target="_blank" rel="noopener noreferrer">View the Infographic</a>
+    </div>
+  </div>
+
+  <div class="mm-stats">
+    <div class="mm-stat"><span class="mm-stat-num">12</span><span class="mm-stat-label">Algorithms mapped</span></div>
+    <div class="mm-stat"><span class="mm-stat-num">3</span><span class="mm-stat-label">Ways of learning</span></div>
+    <div class="mm-stat"><span class="mm-stat-num">4</span><span class="mm-stat-label">Application domains</span></div>
+    <div class="mm-stat"><span class="mm-stat-num">6</span><span class="mm-stat-label">Relationships drawn</span></div>
+  </div>
+
+  <div class="mm-stack">
+
+    <!-- TITLE -->
+    <section class="mm-card mm-hero-card">
+      <h3>Title</h3>
+      <p>Machine Learning Algorithm Map — Visual Framework and Classification Reflection</p>
+    </section>
+
+    <!-- OBJECTIVE + WHAT IS IT -->
+    <div class="mm-two">
+      <section class="mm-card">
+        <h3>Objective</h3>
+        <p>
+          Build one visual framework that classifies at least eight to ten algorithms by learning type,
+          application domain, real-world use, and how each one works, and that makes clear how the
+          algorithms relate to and differ from one another.
+        </p>
+      </section>
+      <section class="mm-card">
+        <h3>What is it?</h3>
+        <p>
+          A two-part infographic. The top half is a concept map that sorts twelve algorithms by how they
+          learn and which model family they belong to. The bottom half is a numbered comparison chart, so a
+          reader can find any algorithm on the map and then read its full details in one row.
+        </p>
+      </section>
+    </div>
+
+    <!-- EXPLORER -->
+    <section class="mm-card">
+      <h3>Explore the Map</h3>
+      <p class="mm-muted">
+        The same structure as the infographic. Pick a domain to see which algorithms are commonly used there,
+        then select any algorithm to see how it works.
+      </p>
+
+      <div class="mm-filters" role="group" aria-label="Filter by domain">
+        <button type="button" class="mm-filter" data-domain="all" aria-pressed="true">All domains</button>
+        <button type="button" class="mm-filter" data-domain="tab" aria-pressed="false"><span class="mm-dot mm-d-tab"></span>Tabular Data</button>
+        <button type="button" class="mm-filter" data-domain="cv" aria-pressed="false"><span class="mm-dot mm-d-cv"></span>Computer Vision</button>
+        <button type="button" class="mm-filter" data-domain="nlp" aria-pressed="false"><span class="mm-dot mm-d-nlp"></span>NLP</button>
+        <button type="button" class="mm-filter" data-domain="gen" aria-pressed="false"><span class="mm-dot mm-d-gen"></span>Generative AI</button>
+      </div>
+
+      <div class="mm-map" id="mm-map"></div>
+
+      <div class="mm-detail" id="mm-detail" aria-live="polite"></div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="mm-card mm-process-card">
+      <h3>Process</h3>
+      <p class="mm-muted">
+        The map was built in five steps. Select a step to see what happened in it.
+      </p>
+      <div class="mm-steps" role="tablist" aria-label="Process steps" id="mm-steps"></div>
+      <div class="mm-step-panel" role="tabpanel" id="mm-step-panel"></div>
+    </section>
+
+    <!-- PROGRESS -->
+    <section class="mm-card mm-highlight-card">
+      <h3>Overall Progress</h3>
+      <div class="mm-progress">
+        <div class="mm-version">
+          <div class="mm-version-tag mm-tag-before">First version</div>
+          <h4>A grid of twelve cards</h4>
+          <p>Every card was accurate, but each algorithm stood alone. It presented twelve separate facts rather than one connected picture.</p>
+        </div>
+        <div class="mm-arrow" aria-hidden="true">→</div>
+        <div class="mm-version mm-version-after">
+          <div class="mm-version-tag mm-tag-after">Final version</div>
+          <h4>A concept map with a comparison chart</h4>
+          <p>A three-level hierarchy, a numbered chart, and a relationship panel. The reader now sees a few decisions that sort every algorithm.</p>
+        </div>
+      </div>
+      <p class="mm-progress-note">
+        The biggest shift was checking the work against the goal, not only for accuracy. The goal was to show
+        how algorithms relate, and only the rebuilt version did that.
+      </p>
+    </section>
+
+    <!-- TAKEAWAYS -->
+    <section class="mm-card">
+      <h3>Step-by-Step Key Takeaways</h3>
+      <div class="mm-accordion" id="mm-accordion"></div>
+    </section>
+
+    <!-- VALUE -->
+    <section class="mm-card mm-value-card">
+      <h3>Value</h3>
+      <p>
+        This artifact shows that I can turn a long list of technical concepts into one connected, easy-to-scan
+        picture. It defines clear rules for each category, makes the exceptions visible instead of hiding them,
+        and shows relationships a simple list would miss.
+      </p>
+      <p>It also connects directly to my work in financial services, where most data is tabular:</p>
+      <div class="mm-uses">
+        <div class="mm-use"><span class="mm-use-algo">Random Forest</span><span>Flagging unusual collateral and margin records</span></div>
+        <div class="mm-use"><span class="mm-use-algo">K-means</span><span>Grouping similar positions for review</span></div>
+        <div class="mm-use"><span class="mm-use-algo">Transformer</span><span>The language-model applications I build outside work</span></div>
+      </div>
+      <p>Knowing where each model belongs helps me choose a tool based on the problem rather than on what is popular.</p>
+    </section>
+
+    <!-- REFLECTION -->
+    <section class="mm-card mm-reflection-card">
+      <h3>Reflection — What I Learned</h3>
+      <p>
+        This assignment changed how I study the field. Instead of memorizing algorithms one at a time, I now
+        look for the small number of decisions that sort all of them.
+      </p>
+
+      <div class="mm-tabs" role="tablist" aria-label="Reflection">
+        <button type="button" class="mm-tab" role="tab" id="mm-tab-learn" aria-controls="mm-panel-learn" aria-selected="true">Key Learnings</button>
+        <button type="button" class="mm-tab" role="tab" id="mm-tab-skills" aria-controls="mm-panel-skills" aria-selected="false" tabindex="-1">Key Skills Developed</button>
+      </div>
+
+      <div class="mm-tab-panel" role="tabpanel" id="mm-panel-learn" aria-labelledby="mm-tab-learn">
+        <ul>
+          <li>A few questions sort every algorithm: does it need labels, does it learn its own features, and where is it used today.</li>
+          <li>Real algorithms do not respect clean categories. A good framework defines each category by a test and shows the exceptions.</li>
+          <li>Transformers are self-supervised. During pretraining, the text itself supplies the answers.</li>
+          <li>Ensembles exist for a reason. A single decision tree can overfit, and many trees voting together reduce that risk.</li>
+          <li>AI, machine learning, deep learning, and generative AI are nested fields, and generative models create new content rather than classify existing content.</li>
+          <li>The right model depends on the problem, not on what is popular.</li>
+        </ul>
+      </div>
+
+      <div class="mm-tab-panel" role="tabpanel" id="mm-panel-skills" aria-labelledby="mm-tab-skills" hidden>
+        <ul>
+          <li><strong>Classification design:</strong> building category rules I can apply the same way to every algorithm.</li>
+          <li><strong>Visual communication:</strong> choosing a concept map for hierarchy and a chart for side-by-side comparison.</li>
+          <li><strong>Self-critique:</strong> rebuilding a correct first version because it did not meet the real goal.</li>
+          <li><strong>Source verification:</strong> using generative AI to clarify concepts, then checking its answers against the assigned resources.</li>
+          <li><strong>Connecting ideas:</strong> linking Gini impurity from the fruit classification activity to why random forests exist.</li>
+          <li><strong>Applied judgment:</strong> matching algorithms to real financial-services problems.</li>
+        </ul>
+      </div>
+
+      <p class="mm-quote">
+        “Instead of memorizing algorithms one at a time, I started seeing a small number of decisions that sort all of them.”
+      </p>
+    </section>
+
+    <div class="mm-btn-row">
+      <a class="mm-btn mm-btn-primary" href="#infographic-link-coming-soon" target="_blank" rel="noopener noreferrer">View the Infographic</a>
+      <a class="mm-btn mm-btn-secondary" href="https://sites.google.com/view/sagar-s-alande/artifacts" target="_blank" rel="noopener noreferrer">Back to Artifacts</a>
+    </div>
+
+  </div>
+</div>
+
+<style>
+#mlmap-artifact{
+  font-family: Arial, Helvetica, sans-serif;
+  max-width: 1040px;
+  margin: auto;
+  padding: 34px 20px 44px;
+  color: #122033;
+  background:
+    radial-gradient(circle at top right, rgba(37,99,235,0.08), transparent 26%),
+    radial-gradient(circle at top left, rgba(14,165,233,0.07), transparent 28%),
+    linear-gradient(180deg, #f8fbff 0%, #ffffff 32%, #f9fbff 100%);
+  border-radius: 28px;
+}
+#mlmap-artifact *{ box-sizing: border-box; }
+
+/* Header */
+#mlmap-artifact .mm-header{ text-align: center; margin-bottom: 24px; }
+#mlmap-artifact .mm-badge{
+  display: inline-block;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #1d4ed8;
+  background: rgba(37,99,235,0.09);
+  border: 1px solid rgba(37,99,235,0.16);
+  padding: 8px 14px;
+  border-radius: 999px;
+  margin-bottom: 14px;
+}
+#mlmap-artifact h2{
+  margin: 0 0 10px;
+  font-size: 2.15rem;
+  line-height: 1.2;
+  color: #0f172a;
+}
+#mlmap-artifact .mm-header p{
+  max-width: 820px;
+  margin: 0 auto;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #475569;
+}
+
+/* Buttons */
+#mlmap-artifact .mm-btn-row{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 20px;
+}
+#mlmap-artifact .mm-btn{
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.96rem;
+  padding: 13px 24px;
+  border-radius: 999px;
+  display: inline-block;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+#mlmap-artifact .mm-btn:hover{ transform: translateY(-2px); }
+#mlmap-artifact .mm-btn-primary{
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: #ffffff;
+  box-shadow: 0 12px 26px rgba(37,99,235,0.28);
+}
+#mlmap-artifact .mm-btn-secondary{
+  background: #eff6ff;
+  color: #1d4ed8;
+  border: 1px solid #bfdbfe;
+}
+
+/* Stats */
+#mlmap-artifact .mm-stats{
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 20px;
+}
+#mlmap-artifact .mm-stat{
+  background: linear-gradient(135deg, #0f172a, #1e3a8a);
+  color: #ffffff;
+  border-radius: 18px;
+  padding: 16px 12px;
+  text-align: center;
+}
+#mlmap-artifact .mm-stat-num{ display: block; font-size: 1.8rem; font-weight: 700; }
+#mlmap-artifact .mm-stat-label{ display: block; font-size: 0.86rem; color: #dbeafe; margin-top: 4px; }
+
+/* Cards */
+#mlmap-artifact .mm-stack{ display: flex; flex-direction: column; gap: 20px; }
+#mlmap-artifact .mm-two{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+#mlmap-artifact .mm-card{
+  background: linear-gradient(180deg, #ffffff, #f8fbff);
+  border-radius: 22px;
+  padding: 22px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 8px 22px rgba(15,23,42,0.06);
+  min-width: 0;
+}
+#mlmap-artifact .mm-card h3{
+  margin: 0 0 12px;
+  font-size: 1.18rem;
+  color: #0f172a;
+}
+#mlmap-artifact .mm-card h4{
+  margin: 0 0 8px;
+  font-size: 1rem;
+  color: #1d4ed8;
+}
+#mlmap-artifact .mm-card p{
+  margin: 0 0 12px;
+  color: #475569;
+  font-size: 0.97rem;
+  line-height: 1.72;
+}
+#mlmap-artifact .mm-card p:last-child{ margin-bottom: 0; }
+#mlmap-artifact .mm-muted{ font-size: 0.93rem !important; }
+#mlmap-artifact .mm-hero-card{
+  background: linear-gradient(135deg, #eff6ff, #ffffff 55%, #f0f9ff);
+  border: 1px solid #d8e6fb;
+}
+#mlmap-artifact .mm-hero-card p{ font-size: 1.05rem; font-weight: 600; color: #1e3a8a; }
+#mlmap-artifact .mm-highlight-card{
+  background: linear-gradient(135deg, #eef7ff, #ffffff 52%, #f8fbff);
+  border-left: 6px solid #2563eb;
+}
+#mlmap-artifact .mm-value-card{ background: linear-gradient(135deg, #f8fbff, #ffffff 50%, #eff6ff); }
+#mlmap-artifact .mm-reflection-card{ background: linear-gradient(135deg, #f7fbff, #ffffff 55%, #f8fafc); }
+
+/* Domain dots */
+#mlmap-artifact .mm-dot{
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 7px;
+  vertical-align: middle;
+}
+#mlmap-artifact .mm-d-tab{ background: #2563eb; }
+#mlmap-artifact .mm-d-cv{ background: #0d9488; }
+#mlmap-artifact .mm-d-nlp{ background: #d97706; }
+#mlmap-artifact .mm-d-gen{ background: #9333ea; }
+
+/* Explorer */
+#mlmap-artifact .mm-filters{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 4px 0 18px;
+}
+#mlmap-artifact .mm-filter{
+  font: inherit;
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: #334155;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 999px;
+  padding: 8px 14px;
+  cursor: pointer;
+}
+#mlmap-artifact .mm-filter[aria-pressed="true"]{
+  background: #0f172a;
+  border-color: #0f172a;
+  color: #ffffff;
+}
+#mlmap-artifact .mm-map{
+  display: grid;
+  grid-template-columns: 1.7fr 1fr 1.2fr;
+  gap: 14px;
+}
+#mlmap-artifact .mm-col{
+  background: #f8fbff;
+  border: 1px solid #e6eef9;
+  border-radius: 16px;
+  padding: 14px;
+  min-width: 0;
+}
+#mlmap-artifact .mm-col-head{ margin-bottom: 12px; }
+#mlmap-artifact .mm-col-head small{
+  display: block;
+  margin-top: 6px;
+  color: #64748b;
+  font-size: 0.82rem;
+}
+#mlmap-artifact .mm-fam{ margin-top: 12px; }
+#mlmap-artifact .mm-fam-name{
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #64748b;
+  margin-bottom: 8px;
+}
+#mlmap-artifact .mm-chips{ display: flex; flex-wrap: wrap; gap: 8px; }
+#mlmap-artifact .mm-chip{
+  font: inherit;
+  font-size: 0.88rem;
+  color: #0f172a;
+  background: #ffffff;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 10px;
+  padding: 8px 11px;
+  cursor: pointer;
+  text-align: left;
+  transition: opacity 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+#mlmap-artifact .mm-chip:hover{ transform: translateY(-2px); border-color: #2563eb; }
+#mlmap-artifact .mm-chip b{ color: #2563eb; margin-right: 6px; }
+#mlmap-artifact .mm-chip.mm-dim{ opacity: 0.3; }
+#mlmap-artifact .mm-chip[aria-pressed="true"]{
+  border-color: #2563eb;
+  background: #eff6ff;
+  box-shadow: 0 0 0 3px rgba(37,99,235,0.15);
+}
+
+/* Learning-type badges mirror the infographic: solid, outlined, dashed */
+#mlmap-artifact .mm-type{
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+#mlmap-artifact .mm-type-sup{ background: #14202b; color: #ffffff; border: 2px solid #14202b; }
+#mlmap-artifact .mm-type-uns{ color: #14202b; border: 2px solid #14202b; }
+#mlmap-artifact .mm-type-self{ color: #14202b; border: 2px dashed #14202b; }
+
+#mlmap-artifact .mm-detail{
+  margin-top: 18px;
+  background: #ffffff;
+  border: 1px solid #dbeafe;
+  border-radius: 18px;
+  padding: 18px 20px;
+}
+#mlmap-artifact .mm-detail-top{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 14px;
+  margin-bottom: 12px;
+}
+#mlmap-artifact .mm-detail-top h4{ margin: 0; font-size: 1.15rem; color: #0f172a; }
+#mlmap-artifact .mm-detail-num{
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #2563eb;
+  color: #ffffff;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+#mlmap-artifact .mm-domains{ display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+#mlmap-artifact .mm-domain{
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: #f1f5f9;
+  color: #94a3b8;
+}
+#mlmap-artifact .mm-domain.mm-on{ background: #eff6ff; color: #0f172a; }
+#mlmap-artifact .mm-domain:not(.mm-on) .mm-dot{ background: #cbd5e1; }
+#mlmap-artifact .mm-detail-grid{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+#mlmap-artifact .mm-detail-label{
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #64748b;
+  margin-bottom: 4px;
+}
+#mlmap-artifact .mm-detail p{ margin: 0; font-size: 0.95rem; }
+#mlmap-artifact .mm-links-list{ margin: 14px 0 0; padding: 12px 14px; border-radius: 12px; background: #f8fbff; }
+#mlmap-artifact .mm-links-list p + p{ margin-top: 6px; }
+
+/* Process stepper */
+#mlmap-artifact .mm-steps{
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 16px;
+}
+#mlmap-artifact .mm-step{
+  font: inherit;
+  text-align: left;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 12px;
+  cursor: pointer;
+  color: #334155;
+  font-size: 0.88rem;
+  font-weight: 700;
+  line-height: 1.35;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+#mlmap-artifact .mm-step span{
+  display: block;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #2563eb;
+  margin-bottom: 4px;
+}
+#mlmap-artifact .mm-step[aria-selected="true"]{
+  background: #0f172a;
+  border-color: #0f172a;
+  color: #ffffff;
+}
+#mlmap-artifact .mm-step[aria-selected="true"] span{ color: #93c5fd; }
+#mlmap-artifact .mm-step-panel{
+  background: #f8fbff;
+  border: 1px solid #e6eef9;
+  border-radius: 16px;
+  padding: 18px;
+}
+#mlmap-artifact .mm-levels{ display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 4px; }
+#mlmap-artifact .mm-level{
+  background: #ffffff;
+  border: 1px solid #bfdbfe;
+  border-radius: 12px;
+  padding: 10px 12px;
+  font-size: 0.88rem;
+  color: #0f172a;
+  flex: 1 1 160px;
+}
+#mlmap-artifact .mm-level b{ display: block; color: #1d4ed8; margin-bottom: 2px; }
+#mlmap-artifact .mm-cases{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 4px;
+}
+#mlmap-artifact .mm-case{
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 14px;
+}
+#mlmap-artifact .mm-case h4{ display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+#mlmap-artifact .mm-case p{ font-size: 0.92rem; }
+
+/* Progress */
+#mlmap-artifact .mm-progress{
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  gap: 14px;
+  align-items: stretch;
+}
+#mlmap-artifact .mm-version{
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-top: 5px solid #f87171;
+  border-radius: 16px;
+  padding: 16px;
+}
+#mlmap-artifact .mm-version-after{ border-top-color: #22c55e; }
+#mlmap-artifact .mm-version-tag{
+  display: inline-block;
+  font-size: 0.74rem;
+  font-weight: 700;
+  padding: 5px 10px;
+  border-radius: 999px;
+  margin-bottom: 10px;
+}
+#mlmap-artifact .mm-tag-before{ background: #fee2e2; color: #b91c1c; }
+#mlmap-artifact .mm-tag-after{ background: #dcfce7; color: #15803d; }
+#mlmap-artifact .mm-version h4{ color: #0f172a; }
+#mlmap-artifact .mm-arrow{
+  align-self: center;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #2563eb;
+}
+#mlmap-artifact .mm-progress-note{ margin-top: 16px !important; }
+
+/* Accordion */
+#mlmap-artifact .mm-accordion{ display: flex; flex-direction: column; gap: 10px; }
+#mlmap-artifact .mm-acc{
+  background: #f8fbff;
+  border: 1px solid #e6eef9;
+  border-radius: 16px;
+  overflow: hidden;
+}
+#mlmap-artifact .mm-acc summary{
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  font-weight: 700;
+  color: #0f172a;
+}
+#mlmap-artifact .mm-acc summary::-webkit-details-marker{ display: none; }
+#mlmap-artifact .mm-acc summary::after{
+  content: "+";
+  margin-left: auto;
+  font-size: 1.3rem;
+  color: #2563eb;
+  line-height: 1;
+}
+#mlmap-artifact .mm-acc[open] summary::after{ content: "−"; }
+#mlmap-artifact .mm-acc-num{
+  flex-shrink: 0;
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: #1e40af;
+  background: #e0ecff;
+  padding: 6px 10px;
+  border-radius: 999px;
+}
+#mlmap-artifact .mm-acc-body{ padding: 0 16px 16px; }
+#mlmap-artifact .mm-acc-body p{ font-size: 0.95rem; margin-bottom: 8px; }
+
+/* Value */
+#mlmap-artifact .mm-uses{ display: flex; flex-direction: column; gap: 8px; margin: 4px 0 14px; }
+#mlmap-artifact .mm-use{
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 12px;
+  align-items: center;
+  background: #ffffff;
+  border: 1px solid #dbeafe;
+  border-radius: 12px;
+  padding: 10px 14px;
+  font-size: 0.94rem;
+  color: #334155;
+}
+#mlmap-artifact .mm-use-algo{ font-weight: 700; color: #1d4ed8; }
+
+/* Reflection tabs */
+#mlmap-artifact .mm-tabs{
+  display: inline-flex;
+  gap: 4px;
+  padding: 4px;
+  background: #e8f0fc;
+  border-radius: 999px;
+  margin: 6px 0 14px;
+  max-width: 100%;
+  flex-wrap: wrap;
+}
+#mlmap-artifact .mm-tab{
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 700;
+  border: none;
+  background: transparent;
+  color: #1e3a8a;
+  padding: 10px 18px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+#mlmap-artifact .mm-tab[aria-selected="true"]{
+  background: #ffffff;
+  color: #0f172a;
+  box-shadow: 0 4px 12px rgba(15,23,42,0.1);
+}
+#mlmap-artifact .mm-tab-panel{
+  background: linear-gradient(180deg, #fbfdff, #f5f9ff);
+  border: 1px solid #dfeaf8;
+  border-radius: 18px;
+  padding: 18px 18px 16px;
+}
+#mlmap-artifact .mm-tab-panel[hidden]{ display: none; }
+#mlmap-artifact .mm-tab-panel ul{ margin: 0; padding-left: 18px; }
+#mlmap-artifact .mm-tab-panel li{
+  margin-bottom: 10px;
+  color: #475569;
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+#mlmap-artifact .mm-tab-panel li:last-child{ margin-bottom: 0; }
+#mlmap-artifact .mm-quote{
+  margin-top: 20px !important;
+  padding: 18px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #eff6ff, #f8fbff);
+  border: 1px solid #dbeafe;
+  color: #1e3a8a !important;
+  font-weight: 600;
+}
+
+/* Focus */
+#mlmap-artifact button:focus-visible,
+#mlmap-artifact a:focus-visible,
+#mlmap-artifact summary:focus-visible{
+  outline: 3px solid #2563eb;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce){
+  #mlmap-artifact *{ transition: none !important; }
+}
+
+@media (max-width: 860px){
+  #mlmap-artifact .mm-map{ grid-template-columns: 1fr; }
+  #mlmap-artifact .mm-steps{ grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); }
+  #mlmap-artifact .mm-cases{ grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px){
+  #mlmap-artifact{ padding: 24px 14px 32px; border-radius: 20px; }
+  #mlmap-artifact h2{ font-size: 1.72rem; }
+  #mlmap-artifact .mm-card{ padding: 18px; border-radius: 18px; }
+  #mlmap-artifact .mm-stats{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  #mlmap-artifact .mm-two,
+  #mlmap-artifact .mm-detail-grid{ grid-template-columns: 1fr; }
+  #mlmap-artifact .mm-progress{ grid-template-columns: 1fr; }
+  #mlmap-artifact .mm-arrow{ transform: rotate(90deg); justify-self: center; }
+  #mlmap-artifact .mm-use{ grid-template-columns: 1fr; gap: 2px; }
+}
+</style>
+
+<script>
+(function(){
+  var root = document.getElementById('mlmap-artifact');
+
+  /* ---------- Algorithm data (from the infographic's comparison chart) ---------- */
+  var DOMAINS = { tab: 'Tabular Data', cv: 'Computer Vision', nlp: 'NLP', gen: 'Generative AI' };
+  var TYPES = {
+    sup: { label: 'Supervised', note: 'Learns from labeled examples' },
+    self: { label: 'Self-supervised', note: 'Makes its own labels from raw data' },
+    uns: { label: 'Unsupervised', note: 'Finds structure without labels' }
+  };
+  var ALGOS = [
+    { n: 1, name: 'Linear Regression', type: 'sup', fam: 'Classical ML', d: ['tab'], how: 'Fits the straight line that keeps predicted numbers closest to the actual values.', uses: 'House prices, sales forecasts' },
+    { n: 2, name: 'Logistic Regression', type: 'sup', fam: 'Classical ML', d: ['tab', 'nlp'], how: 'Turns a weighted sum of features into a yes or no probability using an S-shaped curve.', uses: 'Credit default risk, spam filtering' },
+    { n: 3, name: 'Decision Tree', type: 'sup', fam: 'Classical ML', d: ['tab'], how: 'Asks a chain of yes or no questions, each chosen to make the groups more pure.', uses: 'Loan approval, fruit sorting' },
+    { n: 4, name: 'Random Forest', type: 'sup', fam: 'Classical ML', d: ['tab'], how: 'Trains many decision trees on random samples of the data and lets them vote.', uses: 'Fraud detection, customer churn' },
+    { n: 5, name: 'Support Vector Machine', type: 'sup', fam: 'Classical ML', d: ['tab', 'cv', 'nlp'], how: 'Draws the boundary that leaves the widest possible gap between classes.', uses: 'Text categorization, handwritten digits' },
+    { n: 6, name: 'K Nearest Neighbors', type: 'sup', fam: 'Classical ML', d: ['tab', 'cv'], how: 'Labels a new point by a majority vote of its k closest labeled neighbors.', uses: 'Product recommendations, image matching' },
+    { n: 7, name: 'Convolutional Neural Network', type: 'sup', fam: 'Deep Learning', d: ['cv'], how: 'Slides small filters over an image to find edges, then shapes, then whole objects.', uses: 'Medical image screening, pedestrian detection' },
+    { n: 8, name: 'RNN and LSTM', type: 'sup', fam: 'Deep Learning', d: ['nlp'], how: 'Reads a sequence one step at a time while carrying a memory of earlier steps forward.', uses: 'Speech recognition, next word prediction' },
+    { n: 9, name: 'Transformer', type: 'self', fam: 'Foundation Models', d: ['cv', 'nlp', 'gen'], how: 'Uses attention to relate every word to every other word, then predicts the next word.', uses: 'ChatGPT, machine translation' },
+    { n: 10, name: 'K-means Clustering', type: 'uns', fam: 'Classical ML', d: ['tab', 'cv'], how: 'Assigns points to the nearest of k centers and moves the centers until they settle.', uses: 'Customer segmentation, image color compression' },
+    { n: 11, name: 'Principal Component Analysis', type: 'uns', fam: 'Classical ML', d: ['tab', 'cv'], how: 'Rotates the data onto a few new axes that hold the most variation.', uses: 'Feature reduction, face recognition' },
+    { n: 12, name: 'Generative Adversarial Network', type: 'uns', fam: 'Generative Models', d: ['cv', 'gen'], how: 'A generator makes fake samples and a discriminator tries to catch them until the fakes look real.', uses: 'Image synthesis, image super-resolution' }
+  ];
+  var LINKS = [
+    [3, 4, 'A forest is many trees voting, which cuts the overfitting of a single tree.'],
+    [8, 9, 'Attention replaced step-by-step reading for most language tasks.'],
+    [6, 10, 'Both measure distance, but only KNN uses labels to make a prediction.'],
+    [2, 5, 'Both draw a boundary between classes. SVM pushes for the widest gap.'],
+    [7, 12, 'Image GANs are usually built from CNN layers to create and judge images.'],
+    [11, null, 'Often runs first to shrink many features before another model trains.']
+  ];
+  var SHORT = { 5: 'SVM', 6: 'KNN', 7: 'CNN', 8: 'RNN and LSTM', 10: 'K-means', 11: 'PCA', 12: 'GAN' };
+  function shortName(a){ return SHORT[a.n] || a.name; }
+  function byN(n){ return ALGOS[n - 1]; }
+
+  /* ---------- Explorer ---------- */
+  var map = document.getElementById('mm-map');
+  var detail = document.getElementById('mm-detail');
+  var chips = [];
+  var selected = 9;
+
+  ['sup', 'self', 'uns'].forEach(function(t){
+    var col = document.createElement('div');
+    col.className = 'mm-col';
+    var html = '<div class="mm-col-head"><span class="mm-type mm-type-' + t + '">' + TYPES[t].label + '</span><small>' + TYPES[t].note + '</small></div>';
+    var fams = [];
+    ALGOS.forEach(function(a){ if (a.type === t && fams.indexOf(a.fam) < 0) fams.push(a.fam); });
+    fams.forEach(function(f){
+      html += '<div class="mm-fam"><div class="mm-fam-name">' + f + '</div><div class="mm-chips">';
+      ALGOS.forEach(function(a){
+        if (a.type === t && a.fam === f){
+          html += '<button type="button" class="mm-chip" data-n="' + a.n + '" aria-pressed="false"><b>' + a.n + '</b>' + shortName(a) + '</button>';
+        }
+      });
+      html += '</div></div>';
+    });
+    col.innerHTML = html;
+    map.appendChild(col);
+  });
+  chips = [].slice.call(map.querySelectorAll('.mm-chip'));
+
+  function showDetail(n){
+    selected = n;
+    var a = byN(n);
+    chips.forEach(function(c){ c.setAttribute('aria-pressed', String(+c.dataset.n === n)); });
+    var doms = Object.keys(DOMAINS).map(function(k){
+      var on = a.d.indexOf(k) >= 0;
+      return '<span class="mm-domain' + (on ? ' mm-on' : '') + '"><span class="mm-dot mm-d-' + k + '"></span>' + DOMAINS[k] + (on ? '' : ' (not typical)') + '</span>';
+    }).join('');
+    var rel = LINKS.filter(function(l){ return l[0] === n || l[1] === n; }).map(function(l){
+      var label = l[1] === null
+        ? byN(l[0]).n + ' ' + shortName(byN(l[0])) + ' → other models'
+        : l[0] + ' ' + shortName(byN(l[0])) + (l[0] === 2 || l[0] === 6 ? ' vs. ' : ' → ') + l[1] + ' ' + shortName(byN(l[1]));
+      return '<p><strong>' + label + ':</strong> ' + l[2] + '</p>';
+    }).join('');
+    detail.innerHTML =
+      '<div class="mm-detail-top"><div class="mm-detail-num">' + a.n + '</div><h4>' + a.name + '</h4>' +
+      '<span class="mm-type mm-type-' + a.type + '">' + TYPES[a.type].label + '</span></div>' +
+      '<div class="mm-domains">' + doms + '</div>' +
+      '<div class="mm-detail-grid">' +
+        '<div><div class="mm-detail-label">How it works</div><p>' + a.how + '</p></div>' +
+        '<div><div class="mm-detail-label">Example uses</div><p>' + a.uses + '</p></div>' +
+      '</div>' +
+      (rel ? '<div class="mm-links-list"><div class="mm-detail-label">How it connects</div>' + rel + '</div>' : '');
+  }
+
+  chips.forEach(function(c){
+    c.addEventListener('click', function(){ showDetail(+c.dataset.n); });
+  });
+
+  var filters = [].slice.call(root.querySelectorAll('.mm-filter'));
+  filters.forEach(function(f){
+    f.addEventListener('click', function(){
+      var dom = f.dataset.domain;
+      filters.forEach(function(x){ x.setAttribute('aria-pressed', String(x === f)); });
+      chips.forEach(function(c){
+        var a = byN(+c.dataset.n);
+        c.classList.toggle('mm-dim', dom !== 'all' && a.d.indexOf(dom) < 0);
+      });
+    });
+  });
+
+  showDetail(selected);
+
+  /* ---------- Process stepper ---------- */
+  var STEPS = [
+    {
+      title: 'Choose the algorithms',
+      body: '<p>I picked twelve algorithms so that every learning type and every domain was covered, not just the most familiar names. Every domain ended up with at least two algorithms, and the set shows how the field moved from classical models toward deep learning.</p>' +
+        '<div class="mm-levels">' +
+          '<div class="mm-level"><b>Classical supervised</b>Linear and logistic regression, decision tree, random forest, SVM, KNN</div>' +
+          '<div class="mm-level"><b>Classical unsupervised</b>K-means, PCA</div>' +
+          '<div class="mm-level"><b>Deep learning</b>CNN, RNN, transformer, GAN</div>' +
+        '</div>'
+    },
+    {
+      title: 'Classify on three levels',
+      body: '<p>Each level answers a different question, so the hierarchy reads naturally as a tree. A concept map shows the hierarchy, and a comparison chart lets the reader compare four attributes down each column.</p>' +
+        '<div class="mm-levels">' +
+          '<div class="mm-level"><b>Level 1: How does it learn?</b>Supervised, unsupervised, or self-supervised</div>' +
+          '<div class="mm-level"><b>Level 2: Which family?</b>Classical ML on prepared features, or deep learning on raw data</div>' +
+          '<div class="mm-level"><b>Level 3: Which algorithm?</b>Numbered 1 to 12 to match its row in the chart</div>' +
+        '</div>'
+    },
+    {
+      title: 'Resolve the hard cases',
+      body: '<p>Three algorithms did not fit neatly. Working through them took the most thought.</p>' +
+        '<div class="mm-cases">' +
+          '<div class="mm-case"><h4>Transformer <span class="mm-type mm-type-self">Self-supervised</span></h4><p>Pretraining has no human labels; the text supplies the answers. It got its own branch, drawn with a dashed outline.</p></div>' +
+          '<div class="mm-case"><h4>GAN <span class="mm-type mm-type-uns">Unsupervised</span></h4><p>Its real-versus-fake step looks like classification, but it learns from unlabeled images.</p></div>' +
+          '<div class="mm-case"><h4>RNN <span class="mm-type mm-type-sup">Supervised</span></h4><p>First tagged for tabular data because of time series, but time series is sequence data, so it was limited to NLP.</p></div>' +
+        '</div>'
+    },
+    {
+      title: 'Apply one domain rule',
+      body: '<p>A domain gets a dot only when the algorithm is commonly used there today, not when it could be applied in theory. Almost any algorithm can run on tabular data once features are extracted, so marking everything would have made the chart meaningless.</p>' +
+        '<p>This rule is why the decision tree appears only under tabular data, while the support vector machine appears under three domains. Try the domain filter above to see it.</p>'
+    },
+    {
+      title: 'Map the relationships',
+      body: '<p>A relationship panel links algorithms that build on each other and contrasts pairs that look similar but differ in an important way.</p>' +
+        '<div class="mm-levels">' +
+          '<div class="mm-level"><b>Builds on</b>Decision tree → random forest, RNN → transformer, CNN → GAN</div>' +
+          '<div class="mm-level"><b>Looks similar, differs</b>KNN vs. k-means (labels), logistic regression vs. SVM (margin)</div>' +
+          '<div class="mm-level"><b>Works before others</b>PCA shrinks features before another model trains</div>' +
+        '</div>'
+    }
+  ];
+  var stepsEl = document.getElementById('mm-steps');
+  var stepPanel = document.getElementById('mm-step-panel');
+  var stepBtns = STEPS.map(function(s, i){
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'mm-step';
+    b.setAttribute('role', 'tab');
+    b.id = 'mm-step-' + i;
+    b.setAttribute('aria-controls', 'mm-step-panel');
+    b.innerHTML = '<span>Step ' + (i + 1) + '</span>' + s.title;
+    b.addEventListener('click', function(){ selectStep(i); });
+    b.addEventListener('keydown', function(e){ arrowNav(e, stepBtns, i, selectStep); });
+    stepsEl.appendChild(b);
+    return b;
+  });
+  function selectStep(i){
+    stepBtns.forEach(function(b, j){
+      b.setAttribute('aria-selected', String(i === j));
+      b.tabIndex = i === j ? 0 : -1;
+    });
+    stepPanel.setAttribute('aria-labelledby', 'mm-step-' + i);
+    stepPanel.innerHTML = '<h4>Step ' + (i + 1) + ': ' + STEPS[i].title + '</h4>' + STEPS[i].body;
+  }
+  function arrowNav(e, list, i, select){
+    var next = e.key === 'ArrowRight' ? i + 1 : e.key === 'ArrowLeft' ? i - 1 : null;
+    if (next === null) return;
+    e.preventDefault();
+    next = (next + list.length) % list.length;
+    select(next);
+    list[next].focus();
+  }
+  selectStep(0);
+
+  /* ---------- Takeaways accordion ---------- */
+  var TAKEAWAYS = [
+    ['Coverage beats familiarity', 'Choosing algorithms to cover every learning type and domain, instead of picking the best-known names, made the map show how the whole field fits together.'],
+    ['Structure turns facts into understanding', 'Sorting by how an algorithm learns, then by family, then by name showed me that a few decisions explain all twelve algorithms.'],
+    ['Make exceptions visible', 'When an algorithm breaks the categories, showing that openly (like the dashed self-supervised branch) is more honest and more useful than forcing it into a box.'],
+    ['A rule that marks everything means nothing', 'Marking a domain only for common use today kept the chart meaningful and made real differences, such as decision tree versus SVM, easy to see.'],
+    ['Relationships explain why algorithms exist', 'Linking the decision tree to the random forest showed why ensembles exist: a single tree can overfit, and many trees voting reduce that risk. This connected back to Gini impurity from the fruit classification activity.'],
+    ['Check the work against the goal, and check the sources', 'The first card grid was accurate but did not show relationships, so I rebuilt it. I also used generative AI to clarify how transformers are trained, then confirmed those answers against the assigned resources.']
+  ];
+  var acc = document.getElementById('mm-accordion');
+  TAKEAWAYS.forEach(function(t, i){
+    var d = document.createElement('details');
+    d.className = 'mm-acc';
+    if (i === 0) d.open = true;
+    d.innerHTML = '<summary><span class="mm-acc-num">Step ' + (i + 1) + '</span>' + t[0] + '</summary><div class="mm-acc-body"><p>' + t[1] + '</p></div>';
+    acc.appendChild(d);
+  });
+
+  /* ---------- Reflection tabs ---------- */
+  var tabs = [].slice.call(root.querySelectorAll('.mm-tab'));
+  function selectTab(i){
+    tabs.forEach(function(t, j){
+      var on = i === j;
+      t.setAttribute('aria-selected', String(on));
+      t.tabIndex = on ? 0 : -1;
+      document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+    });
+  }
+  tabs.forEach(function(t, i){
+    t.addEventListener('click', function(){ selectTab(i); });
+    t.addEventListener('keydown', function(e){ arrowNav(e, tabs, i, selectTab); });
+  });
+})();
+</script>
