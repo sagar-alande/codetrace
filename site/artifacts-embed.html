@@ -275,6 +275,42 @@
   */
   var ARTIFACTS = [
     {
+      title: `ML Algorithm Map`,
+      fullTitle: `Machine Learning Algorithm Map — A Visual Framework for Twelve ML Algorithms`,
+      label: `MODEL DEVELOPMENT`, emoji: `🗺️⚙️`,
+      accent: `#15803d`, dark: `#14532d`,
+      blurb: `Twelve ML algorithms mapped by how they learn, their model family, and where they are used.`,
+      intro: `This artifact is a visual framework that organizes twelve machine learning algorithms by how they learn, which model family they belong to, and where they are used. It was developed for AIML-501: Model Development and is paired with an APA paper that explains how each algorithm was classified and reflects on what I learned while building the map.`,
+      objective: `Create an infographic that classifies each algorithm by learning type, application domain (Tabular Data, Computer Vision, NLP, Generative AI), real-world use cases, and a brief explanation of how it works, while clearly showing how the algorithms relate to and differ from one another.`,
+      process: [
+        `This was an individual assignment. I selected twelve algorithms so that every learning type and every domain was covered: linear and logistic regression, decision trees, random forests, support vector machines, and k nearest neighbors for classical supervised learning; k-means and PCA for classical unsupervised learning; and CNNs, RNNs, transformers, and GANs for deep learning.`,
+        `I classified each algorithm on three levels: how it learns (supervised, unsupervised, or self-supervised), which model family it belongs to (classical ML or deep learning), and the algorithm itself. A concept map shows that hierarchy at a glance, and a numbered comparison chart lets the reader compare type, domains, how it works, and example uses down each column.`,
+        `Three algorithms needed careful judgment. The transformer received its own self-supervised branch, drawn with a dashed outline, because its pretraining has no human labels. The GAN was placed under unsupervised because it learns from unlabeled images. The RNN was limited to NLP because time series is sequence data, not tabular data. A domain is marked only where the algorithm is commonly used today, not where it could be applied in theory.`
+      ],
+      tools: [`Visual design tool`, `Concept map`, `Comparison chart`, `Generative AI (concept clarification)`, `Course resources`, `APA 7th edition`],
+      value: [
+        [`Unique Value`, `This artifact shows that I can turn a long list of algorithms into one connected picture. It organizes the field around a few clear decisions, makes the exceptions visible instead of hiding them, and highlights relationships such as decision tree to random forest, RNN to transformer, and KNN versus k-means.`],
+        [`Relevance`, `In financial services, most of my data is tabular, such as collateral and margin records. The classical side of the map, especially random forests and k-means, fits problems like flagging unusual records or grouping similar positions for review, while the deep learning side connects to the transformer-based applications I build. The map helps me choose a model based on the problem rather than on what is popular.`]
+      ],
+      audience: [
+        [`Adaptations Made`, `The map is designed to be read from top to bottom, then used as a reference. Each algorithm is numbered so the reader can move from the concept map to its row in the comparison chart. Learning types are color-coded, domains are tagged on every algorithm, and a small nested diagram shows how AI, machine learning, deep learning, and generative AI fit inside one another.`],
+        [`Relevance`, `These choices let a reader compare twelve algorithms quickly without prior knowledge of each one, while still giving enough detail to explain how each algorithm works and where it is used.`]
+      ],
+      reflection: [
+        [`Significance`, `Rebuilding the infographic as a concept map changed how I think about the subject. Instead of memorizing algorithms one at a time, I started seeing a small number of decisions that sort all of them.`],
+        [`Lessons Learned`, `Real algorithms do not respect clean categories. I learned to define each category by a test I can apply consistently, such as whether the model needs human labels, and then make the exceptions visible. Seeing the decision tree next to the random forest also connected back to the earlier fruit classification activity and showed me why ensembles exist: many trees voting together reduce the overfitting of a single tree.`]
+      ],
+      feedback: [
+        [`Self-Review`, `My first version was a grid of cards, one per algorithm. Each card was accurate, but when I checked it against the goal of showing how the algorithms relate, it presented twelve separate facts rather than one connected picture.`],
+        [`Revisions`, `I rebuilt it as a color-coded concept map with a connections panel and a comparison chart. I also used a generative AI tool to clarify how transformers are trained and checked those answers against the assigned resources before using them.`]
+      ],
+      references: `Cloud Simplified. (2024, April 29). What is generative AI | Unraveling the differences between AI, ML, DL, and GenAI [Video]. YouTube. · Costa, B., &amp; Trojahan, M. (2024, August 28). What are the differences between AI, ML, DL, and Gen AI? e-Core.`,
+      links: [
+        [`🔍 Dive Deep →`, `https://sites.google.com/view/sagar-s-alande/ml_algorith_map`],
+        [`🗺️ View the Infographic →`, `https://sagar-alande.github.io/ml-algorithm-map/`]
+      ]
+    },
+    {
       title: `Enterprise RAG System`,
       fullTitle: `Enterprise Retrieval-Augmented Generation (RAG) System for FreshBite Foods`,
       label: `ENTERPRISE AI`, emoji: `🤖📊`,
