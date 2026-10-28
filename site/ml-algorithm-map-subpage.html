@@ -8,7 +8,7 @@
       family they belong to, and where they are used, with a look at how the map was built and what it taught me.
     </p>
     <div class="mm-btn-row">
-      <a class="mm-btn mm-btn-primary" href="#infographic-link-coming-soon" target="_blank" rel="noopener noreferrer">View the Infographic</a>
+      <a class="mm-btn mm-btn-primary" href="https://claude.ai/artifact/6wfDdZAgkhMqYswYiZCRBR" target="_blank" rel="noopener noreferrer">View the Infographic</a>
     </div>
   </div>
 
@@ -40,9 +40,9 @@
       <section class="mm-card">
         <h3>What is it?</h3>
         <p>
-          A two-part infographic. The top half is a concept map that sorts twelve algorithms by how they
-          learn and which model family they belong to. The bottom half is a numbered comparison chart, so a
-          reader can find any algorithm on the map and then read its full details in one row.
+          A three-part infographic. A color-coded concept map sorts twelve algorithms by how they learn and
+          which model family they belong to. A connections panel shows how algorithms build on or differ from
+          each other. A numbered comparison chart then gives the full details for each algorithm in one row.
         </p>
       </section>
     </div>
@@ -164,7 +164,7 @@
     </section>
 
     <div class="mm-btn-row">
-      <a class="mm-btn mm-btn-primary" href="#infographic-link-coming-soon" target="_blank" rel="noopener noreferrer">View the Infographic</a>
+      <a class="mm-btn mm-btn-primary" href="https://claude.ai/artifact/6wfDdZAgkhMqYswYiZCRBR" target="_blank" rel="noopener noreferrer">View the Infographic</a>
       <a class="mm-btn mm-btn-secondary" href="https://sites.google.com/view/sagar-s-alande/artifacts" target="_blank" rel="noopener noreferrer">Back to Artifacts</a>
     </div>
 
@@ -392,19 +392,26 @@
   box-shadow: 0 0 0 3px rgba(37,99,235,0.15);
 }
 
-/* Learning-type badges mirror the infographic: solid, outlined, dashed */
+/* Learning-type colors match the infographic: indigo, teal, amber */
 #mlmap-artifact .mm-type{
   display: inline-block;
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  padding: 4px 8px;
-  border-radius: 6px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  color: #ffffff;
 }
-#mlmap-artifact .mm-type-sup{ background: #14202b; color: #ffffff; border: 2px solid #14202b; }
-#mlmap-artifact .mm-type-uns{ color: #14202b; border: 2px solid #14202b; }
-#mlmap-artifact .mm-type-self{ color: #14202b; border: 2px dashed #14202b; }
+#mlmap-artifact .mm-type-sup{ background: #3730a3; }
+#mlmap-artifact .mm-type-self{ background: #0f766e; }
+#mlmap-artifact .mm-type-uns{ background: #b45309; }
+#mlmap-artifact .mm-col-sup{ background: #f1f2fc; border-color: #c9cdf3; }
+#mlmap-artifact .mm-col-self{ background: #e9f5f3; border-color: #a9dad3; }
+#mlmap-artifact .mm-col-uns{ background: #fcf3e8; border-color: #f0d3ac; }
+#mlmap-artifact .mm-col-sup .mm-chip b{ color: #3730a3; }
+#mlmap-artifact .mm-col-self .mm-chip b{ color: #0f766e; }
+#mlmap-artifact .mm-col-uns .mm-chip b{ color: #b45309; }
 
 #mlmap-artifact .mm-detail{
   margin-top: 18px;
@@ -420,6 +427,9 @@
   gap: 10px 14px;
   margin-bottom: 12px;
 }
+#mlmap-artifact .mm-num-sup{ background: #3730a3 !important; }
+#mlmap-artifact .mm-num-self{ background: #0f766e !important; }
+#mlmap-artifact .mm-num-uns{ background: #b45309 !important; }
 #mlmap-artifact .mm-detail-top h4{ margin: 0; font-size: 1.15rem; color: #0f172a; }
 #mlmap-artifact .mm-detail-num{
   width: 34px;
@@ -745,7 +755,7 @@
 
   ['sup', 'self', 'uns'].forEach(function(t){
     var col = document.createElement('div');
-    col.className = 'mm-col';
+    col.className = 'mm-col mm-col-' + t;
     var html = '<div class="mm-col-head"><span class="mm-type mm-type-' + t + '">' + TYPES[t].label + '</span><small>' + TYPES[t].note + '</small></div>';
     var fams = [];
     ALGOS.forEach(function(a){ if (a.type === t && fams.indexOf(a.fam) < 0) fams.push(a.fam); });
@@ -778,7 +788,7 @@
       return '<p><strong>' + label + ':</strong> ' + l[2] + '</p>';
     }).join('');
     detail.innerHTML =
-      '<div class="mm-detail-top"><div class="mm-detail-num">' + a.n + '</div><h4>' + a.name + '</h4>' +
+      '<div class="mm-detail-top"><div class="mm-detail-num mm-num-' + a.type + '">' + a.n + '</div><h4>' + a.name + '</h4>' +
       '<span class="mm-type mm-type-' + a.type + '">' + TYPES[a.type].label + '</span></div>' +
       '<div class="mm-domains">' + doms + '</div>' +
       '<div class="mm-detail-grid">' +
@@ -830,7 +840,7 @@
       title: 'Resolve the hard cases',
       body: '<p>Three algorithms did not fit neatly. Working through them took the most thought.</p>' +
         '<div class="mm-cases">' +
-          '<div class="mm-case"><h4>Transformer <span class="mm-type mm-type-self">Self-supervised</span></h4><p>Pretraining has no human labels; the text supplies the answers. It got its own branch, drawn with a dashed outline.</p></div>' +
+          '<div class="mm-case"><h4>Transformer <span class="mm-type mm-type-self">Self-supervised</span></h4><p>Pretraining has no human labels; the text supplies the answers. It got its own self-supervised branch and color.</p></div>' +
           '<div class="mm-case"><h4>GAN <span class="mm-type mm-type-uns">Unsupervised</span></h4><p>Its real-versus-fake step looks like classification, but it learns from unlabeled images.</p></div>' +
           '<div class="mm-case"><h4>RNN <span class="mm-type mm-type-sup">Supervised</span></h4><p>First tagged for tabular data because of time series, but time series is sequence data, so it was limited to NLP.</p></div>' +
         '</div>'
@@ -887,7 +897,7 @@
   var TAKEAWAYS = [
     ['Coverage beats familiarity', 'Choosing algorithms to cover every learning type and domain, instead of picking the best-known names, made the map show how the whole field fits together.'],
     ['Structure turns facts into understanding', 'Sorting by how an algorithm learns, then by family, then by name showed me that a few decisions explain all twelve algorithms.'],
-    ['Make exceptions visible', 'When an algorithm breaks the categories, showing that openly (like the dashed self-supervised branch) is more honest and more useful than forcing it into a box.'],
+    ['Make exceptions visible', 'When an algorithm breaks the categories, showing that openly (like giving the transformer its own self-supervised branch) is more honest and more useful than forcing it into a box.'],
     ['A rule that marks everything means nothing', 'Marking a domain only for common use today kept the chart meaningful and made real differences, such as decision tree versus SVM, easy to see.'],
     ['Relationships explain why algorithms exist', 'Linking the decision tree to the random forest showed why ensembles exist: a single tree can overfit, and many trees voting reduce that risk. This connected back to Gini impurity from the fruit classification activity.'],
     ['Check the work against the goal, and check the sources', 'The first card grid was accurate but did not show relationships, so I rebuilt it. I also used generative AI to clarify how transformers are trained, then confirmed those answers against the assigned resources.']
