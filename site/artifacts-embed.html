@@ -252,6 +252,11 @@
   padding: 14px 20px;
 }
 #aiml-portfolio .ap-btn:hover{ filter: brightness(0.92); }
+#aiml-portfolio .ap-btn-alt{
+  background: var(--ap-soft);
+  color: var(--ap-dark);
+  border: 1px solid var(--ap-accent);
+}
 
 @media (max-width: 600px){
   #aiml-portfolio .ap-wrap{ padding: 28px 16px; }
@@ -338,7 +343,7 @@
       process: `I identified key historical events in AI, organized them chronologically, and designed a timeline-based visual presentation that improves readability and engagement for viewers.`,
       tools: [`Claude Artifacts`, `Generative AI-assisted design`, `Content organization`, `Timeline structuring`, `Visual storytelling`],
       value: `This artifact shows my ability to translate complex technical history into a polished visual experience that supports learning, presentation, and communication.`,
-      links: [[`🔗 Explore the Timeline →`, `https://claude.ai/public/artifacts/50ec449b-a242-4d48-bad4-ad53ae4cb503`]]
+      links: [[`🔍 Dive Deep →`, `https://sites.google.com/view/sagar-s-alande/ai-evolution`], [`🔗 Explore the Timeline →`, `https://claude.ai/public/artifacts/50ec449b-a242-4d48-bad4-ad53ae4cb503`]]
     },
     {
       title: `TripForge Chatbot`,
@@ -351,7 +356,7 @@
       process: `I designed the chatbot concept, structured the travel-planning workflow, defined prompt behavior, and organized the responses so the chatbot could provide clear, relevant, and helpful recommendations for different trip scenarios.`,
       tools: [`ChatGPT`, `Custom GPT configuration`, `Prompt engineering`, `Conversational UX design`, `Structured travel-planning logic`],
       value: `This artifact demonstrates my ability to build applied AI solutions that combine creativity, usability, and problem solving to deliver value in a real-world context.`,
-      links: [[`💬 Try TripForge →`, `https://chatgpt.com/g/g-69ac8a2b37f8819192c9693f2dcd6e5c-tripforge`]]
+      links: [[`🔍 Dive Deep →`, `https://sites.google.com/view/sagar-s-alande/tripforge`], [`💬 Try TripForge →`, `https://chatgpt.com/g/g-69ac8a2b37f8819192c9693f2dcd6e5c-tripforge`]]
     },
     {
       title: `Interactive ML Learning`,
@@ -364,7 +369,7 @@
       process: `I accessed the AI coach through the provided link and explored machine learning concepts by asking direct conceptual questions, follow-up questions, and simplification requests. The session progressed from understanding basic definitions to breaking concepts into smaller components such as nodes, hidden layers, training, and prediction. I repeatedly refined the explanations by asking for simpler wording, examples, and essay-style structure so that the concepts became easier to understand and communicate.`,
       tools: [`Machine Learning Training Methods Coach (AI chatbot)`, `Web browser`, `Prompt-based learning`, `Interactive concept exploration`],
       value: `This artifact demonstrates my ability to learn complex technical topics independently, ask meaningful questions, and convert difficult machine learning concepts into clear, structured, and easy-to-understand insights.`,
-      links: [[`🔗 Explore the Session →`, `https://student.schoolai.com/student-space?sessionId=cmmxnrhlx03ad5wxc2nbb0xdf`]]
+      links: [[`🔍 Dive Deep →`, `https://sites.google.com/view/sagar-s-alande/interactive-learning`], [`🔗 Explore the Session →`, `https://student.schoolai.com/student-space?sessionId=cmmxnrhlx03ad5wxc2nbb0xdf`]]
     },
     {
       title: `Data Challenges in AI`,
@@ -384,7 +389,7 @@
       tools: [`School AI`, `ChatGPT`, `Python concepts`, `Pandas`, `Scikit-learn`, `Z-score`, `IQR`, `STL`, `ACF`, `SMOTE`],
       value: `This artifact shows a structured, production-oriented way of approaching data challenges using validation, business context, and measurable decisions.`,
       reflection: [[`Lessons Learned`, `The biggest shift was moving from applying techniques directly to making informed choices based on context, impact, and validation.`]],
-      links: [[`🔗 Explore the Session →`, `https://student.schoolai.com/student-space?sessionId=cmn58u180017jqw60aq8ywb7x`]]
+      links: [[`🔍 Dive Deep →`, `https://sites.google.com/view/sagar-s-alande/data-challenges-in-ml`], [`🔗 Explore the Session →`, `https://student.schoolai.com/student-space?sessionId=cmn58u180017jqw60aq8ywb7x`]]
     },
     {
       title: `Self-Assessment Journey`,
@@ -397,7 +402,8 @@
       process: `I compared my start-of-course and end-of-course self-assessments, identified the most important growth areas, and organized them into a structured reflection. The focus was not only on how my scores changed, but also on how my mindset changed in areas such as communication, AI/ML application, leadership, and iterative learning.`,
       tools: [`Self-assessment forms`, `Reflective analysis`, `Structured comparison`, `Google Sites`, `Portfolio design`],
       value: `This artifact adds depth to my portfolio by showing not just what I learned, but how I evolved. It highlights self-awareness, reflection, and the ability to connect learning with long-term professional growth.`,
-      reflection: [[`What Changed`, `The biggest shift for me was moving from mainly focusing on technical execution to thinking more about communication, leadership, AI/ML application in real systems, and the impact of the solutions I build.`]]
+      reflection: [[`What Changed`, `The biggest shift for me was moving from mainly focusing on technical execution to thinking more about communication, leadership, AI/ML application in real systems, and the impact of the solutions I build.`]],
+      links: [[`🔍 Dive Deep →`, `https://sites.google.com/view/sagar-s-alande/self-assessment`]]
     },
     {
       title: `AI Industry Newsletter`,
@@ -411,7 +417,7 @@
       tools: [`AI research workflows`, `Web publishing`, `GitHub Pages`, `Structured content design`, `Trend analysis`, `Newsletter-style digital presentation`],
       value: `This artifact demonstrates my ability to translate technical AI developments into business-focused insights, design content as a repeatable digital product, and present analysis in a format that is both professional and scalable.`,
       reflection: [[`Lessons Learned`, `The biggest shift for me was moving from simply reading AI updates to actively interpreting how those developments affect workflows, decisions, and business value in real-world environments.`]],
-      links: [[`📰 Open the Newsletter →`, `https://sagar-alande.github.io/newsletter-site/`]]
+      links: [[`🔍 Dive Deep →`, `https://sites.google.com/view/sagar-s-alande/newsletter`], [`📰 Open the Newsletter →`, `https://sagar-alande.github.io/newsletter-site/`]]
     },
     {
       title: `EAED Framework`,
@@ -498,8 +504,8 @@
     if (a.references) html += section('📚 References', paragraphs(a.references), 'ap-refs');
 
     if (a.links && a.links.length){
-      html += '<div class="ap-links">' + a.links.map(function(l){
-        return '<a class="ap-btn" href="' + l[1] + '" target="_blank" rel="noopener noreferrer">' + l[0] + '</a>';
+      html += '<div class="ap-links">' + a.links.map(function(l, j){
+        return '<a class="ap-btn' + (j ? ' ap-btn-alt' : '') + '" href="' + l[1] + '" target="_blank" rel="noopener noreferrer">' + l[0] + '</a>';
       }).join('') + '</div>';
     }
     return html;
