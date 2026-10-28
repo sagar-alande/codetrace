@@ -1,0 +1,566 @@
+<div id="aiml-portfolio">
+  <div class="ap-wrap">
+    <div class="ap-eyebrow">PROJECTS</div>
+    <h2 class="ap-title">Artifacts</h2>
+    <p class="ap-intro">
+      A showcase of the projects and interactive artifacts I have built. Select any card to see the full story.
+    </p>
+    <div class="ap-grid" id="ap-grid"></div>
+  </div>
+
+  <div class="ap-overlay" id="ap-overlay" hidden>
+    <div class="ap-dialog" id="ap-dialog" role="dialog" aria-modal="true" aria-labelledby="ap-dialog-title">
+      <div class="ap-dialog-head" id="ap-dialog-head">
+        <button type="button" class="ap-close" id="ap-close" aria-label="Close">✕</button>
+        <div class="ap-dialog-eyebrow">ARTIFACT TITLE</div>
+        <h3 id="ap-dialog-title"></h3>
+      </div>
+      <div class="ap-dialog-body" id="ap-dialog-body"></div>
+    </div>
+  </div>
+</div>
+
+<style>
+#aiml-portfolio{
+  position: relative;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #0f1720;
+  background: #f6f8fb;
+  margin: 0;
+}
+#aiml-portfolio *{ box-sizing: border-box; }
+
+#aiml-portfolio .ap-wrap{
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+#aiml-portfolio .ap-eyebrow{
+  font-family: 'Courier New', monospace;
+  font-size: 12px;
+  letter-spacing: 2.5px;
+  color: #2f80ed;
+  margin-bottom: 8px;
+}
+#aiml-portfolio .ap-title{
+  margin: 0 0 8px;
+  font-size: 28px;
+  color: #0d1b2a;
+  font-weight: 800;
+}
+#aiml-portfolio .ap-intro{
+  margin: 0 0 24px;
+  font-size: 14.5px;
+  color: #5a6b80;
+  line-height: 1.6;
+}
+
+/* ---------- Cards ---------- */
+#aiml-portfolio .ap-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+}
+#aiml-portfolio .ap-card{
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  background: #ffffff;
+  border: 1px solid #e3e9f0;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(13,27,42,0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+#aiml-portfolio .ap-card:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(13,27,42,0.14);
+}
+#aiml-portfolio .ap-card:focus-visible{
+  outline: 3px solid #2f80ed;
+  outline-offset: 3px;
+}
+#aiml-portfolio .ap-card-art{
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: linear-gradient(135deg, var(--ap-dark), var(--ap-accent));
+}
+#aiml-portfolio .ap-card-label{
+  font-family: 'Courier New', monospace;
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 10px;
+}
+#aiml-portfolio .ap-card-emoji{
+  font-size: 46px;
+  line-height: 1.2;
+}
+#aiml-portfolio .ap-card-body{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 22px;
+}
+#aiml-portfolio .ap-card-body h3{
+  margin: 0 0 8px;
+  color: #0d1b2a;
+  font-size: 19px;
+}
+#aiml-portfolio .ap-card-body p{
+  flex: 1;
+  margin: 0 0 14px;
+  font-size: 13.5px;
+  color: #5a6b80;
+  line-height: 1.6;
+}
+#aiml-portfolio .ap-pill{
+  align-self: center;
+  background: var(--ap-soft);
+  color: var(--ap-dark);
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 12.5px;
+  font-weight: 700;
+}
+
+/* ---------- Detail popup ---------- */
+#aiml-portfolio .ap-overlay{
+  position: absolute;
+  inset: 0;
+  background: rgba(13,27,42,0.65);
+  z-index: 9999;
+}
+#aiml-portfolio .ap-overlay[hidden]{ display: none; }
+#aiml-portfolio .ap-dialog{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 32px);
+  max-width: 700px;
+  max-height: 720px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+#aiml-portfolio .ap-dialog-head{
+  position: relative;
+  flex-shrink: 0;
+  padding: 28px 60px 22px 28px;
+  background: linear-gradient(135deg, #0d1b2a, var(--ap-dark));
+}
+#aiml-portfolio .ap-dialog-eyebrow{
+  font-family: 'Courier New', monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 8px;
+}
+#aiml-portfolio .ap-dialog-head h3{
+  margin: 0;
+  font-size: 21px;
+  color: #ffffff;
+  font-weight: 800;
+  line-height: 1.4;
+}
+#aiml-portfolio .ap-close{
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+}
+#aiml-portfolio .ap-close:hover{ background: rgba(255,255,255,0.28); }
+#aiml-portfolio .ap-close:focus-visible{ outline: 3px solid #ffffff; outline-offset: 2px; }
+#aiml-portfolio .ap-dialog-body{
+  overflow-y: auto;
+  padding: 10px 28px 28px;
+}
+#aiml-portfolio .ap-sec{
+  border-bottom: 1px solid #e3e9f0;
+  padding: 18px 0;
+}
+#aiml-portfolio .ap-sec:last-of-type{ border-bottom: none; }
+#aiml-portfolio .ap-sec-title{
+  font-weight: 800;
+  font-size: 15px;
+  color: #0d1b2a;
+  margin-bottom: 10px;
+}
+#aiml-portfolio .ap-sub{ margin-bottom: 16px; }
+#aiml-portfolio .ap-sub:last-child{ margin-bottom: 0; }
+#aiml-portfolio .ap-sub-label{
+  font-weight: 700;
+  font-size: 13.5px;
+  color: var(--ap-dark);
+  margin-bottom: 6px;
+  font-style: italic;
+}
+#aiml-portfolio .ap-sec p{
+  margin: 0 0 10px;
+  font-size: 14px;
+  line-height: 1.75;
+  color: #3a4a5e;
+}
+#aiml-portfolio .ap-sec p:last-child{ margin-bottom: 0; }
+#aiml-portfolio .ap-sec.ap-refs p{
+  font-size: 13.5px;
+  color: #5a6b80;
+}
+#aiml-portfolio .ap-chips{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+#aiml-portfolio .ap-chip{
+  background: var(--ap-soft);
+  color: var(--ap-dark);
+  border-radius: 16px;
+  padding: 5px 12px;
+  font-size: 12.5px;
+}
+#aiml-portfolio .ap-links{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 22px;
+}
+#aiml-portfolio .ap-btn{
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  background: var(--ap-accent);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 14.5px;
+  border-radius: 10px;
+  padding: 14px 20px;
+}
+#aiml-portfolio .ap-btn:hover{ filter: brightness(0.92); }
+
+@media (max-width: 600px){
+  #aiml-portfolio .ap-wrap{ padding: 28px 16px; }
+  #aiml-portfolio .ap-dialog-head{ padding: 22px 56px 18px 20px; }
+  #aiml-portfolio .ap-dialog-head h3{ font-size: 18px; }
+  #aiml-portfolio .ap-dialog-body{ padding: 6px 20px 22px; }
+}
+</style>
+
+<script>
+(function(){
+  /*
+    To add a new artifact, copy one object below and edit it.
+    Section fields are optional; leave one out and that section is not shown.
+    A section can be plain text, a list of paragraphs, or a list of [label, text] pairs.
+  */
+  var ARTIFACTS = [
+    {
+      title: `Enterprise RAG System`,
+      fullTitle: `Enterprise Retrieval-Augmented Generation (RAG) System for FreshBite Foods`,
+      label: `ENTERPRISE AI`, emoji: `🤖📊`,
+      accent: `#2f80ed`, dark: `#1b3a5c`,
+      blurb: `RAG-based knowledge retrieval solution designed for FreshBite Foods.`,
+      intro: `This artifact presents the design of an Enterprise Retrieval-Augmented Generation (RAG) system for FreshBite Foods. The objective was to improve how employees access trusted business information across the organization. The project combines enterprise architecture and knowledge management to solve a real business problem. I selected this artifact because it demonstrates both my technical understanding of RAG systems and my ability to design enterprise AI solutions.`,
+      objective: `The objective of this project was to design an Enterprise Retrieval-Augmented Generation (RAG) system for FreshBite Foods. The system helps employees retrieve accurate and trusted information from enterprise documents instead of spending time searching through multiple sources. The goal was to improve productivity, support better decision-making, and reduce the risk of incorrect or outdated information.`,
+      process: `This was an individual project. I started by identifying business problems in the food and beverage industry where a RAG system could provide measurable value. I then defined the use cases, key stakeholders, and business objectives. Next, I designed the system architecture and created a workflow that showed how a user query moves through the RAG system. Finally, I evaluated stakeholder feedback, identified areas for improvement, and documented the overall solution in a case study.`,
+      tools: [`Generative AI (ChatGPT)`, `NotebookLM`, `Lucidchart`, `Retrieval-Augmented Generation (RAG)`, `Enterprise AI Architecture`, `Vector Database concepts`, `Embeddings`, `Semantic Search`, `Hybrid Retrieval`, `Role-Based Access Control (RBAC)`],
+      value: [
+        [`Unique Value`, `This artifact demonstrates my ability to connect business needs with enterprise AI solutions. It shows that I can design more than just an AI application. I can also design the supporting architecture, security, governance, and business processes needed for successful implementation. It reflects both technical understanding and strategic thinking.`],
+        [`Relevance`, `This artifact shows how I approach enterprise AI solutions. I focused on solving a real business problem instead of only designing a technical solution. It also reflects my approach of building governance, security, and business value into the solution from the beginning.`]
+      ],
+      audience: [
+        [`Adaptations Made`, `I designed this artifact for business and technical audiences. I used simple language to explain the RAG architecture and avoided unnecessary technical details. I also connected each technical component to a business benefit, so the overall solution is easier to understand.`],
+        [`Relevance`, `These changes make the artifact useful for key stakeholders like managers, architects, and business leaders. They can understand how the solution works and how it supports business goals without needing deep technical knowledge.`]
+      ],
+      reflection: [
+        [`Significance`, `I selected this artifact because it brings together many of the concepts covered in this course. It shows my understanding of enterprise AI, RAG, security, governance, and system architecture. More importantly, it shows how I approach AI projects by starting with the business problem and then designing the solution.`],
+        [`Lessons Learned`, `This project helped me understand that building a RAG system is more than connecting an AI model to a knowledge base. Data quality and strong governance play a crucial role in deciding the quality of the solution. I also learned how each part of the architecture supports accurate and reliable AI responses.`]
+      ],
+      feedback: [
+        [`Feedback`, `The feedback I received encouraged me to think beyond the technical design. I improved the architecture by adding stronger governance, security controls, hybrid retrieval, document validation, and monitoring. I also explained the business value of each major component more clearly.`],
+        [`Revisions`, `Based on the feedback, I refined the architecture, expanded the workflow, and strengthened the stakeholder analysis. These changes made the final solution more practical and better aligned with enterprise AI best practices.`]
+      ],
+      references: `AI-assisted discussions were conducted using ChatGPT and NotebookLM to explore RAG concepts and validate the proposed architecture.`,
+      links: [[`📄 View Full Case Study (WS3) →`, `https://docs.google.com/document/d/1ykdica8-AFqmgxHrD2Hn5f7Ycl4VicXV/edit?usp=sharing&ouid=114690808503887997417&rtpof=true&sd=true`]]
+    },
+    {
+      title: `EduSphere AI`,
+      fullTitle: `EduSphere AI — Student Success Copilot: System Architecture and Working Prototype`,
+      label: `EDTECH AI`, emoji: `🎓🤖`,
+      accent: `#1fa88c`, dark: `#0f5c50`,
+      blurb: `Student Success Copilot — architecture and working AI prototype.`,
+      intro: `This artifact documents EduSphere AI, an AI-powered Student Success Copilot developed during our team's R.3 Hack-a-Thon in the Large Language Models &amp; Generative AI course. Created from the perspective of the Chief Technology Officer of EduSphere, the artifact translates a real business problem — universities failing to identify struggling students until it is too late to help them — into a defensible system architecture and a working interactive prototype with a live language-model integration.`,
+      objective: `Design a professional-grade system architecture for an AI academic-support product, and build a functioning prototype demonstrating it end to end: a personalized, retrieval-augmented student assistant and a role-scoped, configurable early-warning dashboard for faculty.`,
+      process: `This was a group project; my role was architecture and technical implementation lead. I evaluated implementation options layer by layer (data ingestion, retrieval, the predictive risk model, orchestration, access control, infrastructure) and documented trade-offs and a recommendation for each. I then built the prototype in iterative passes: mocked responses to validate the interface, real role-based access control behind an actual login, a genuine knowledge base and module-performance model, and finally a live API integration so the assistant's answers and quizzes are generated in real time rather than scripted.`,
+      tools: [`React`, `Claude API`, `Retrieval-style knowledge base`, `Recharts`, `Hand-built SVG`, `Documentation tools`],
+      value: [
+        [`Unique Value`, `This artifact demonstrates the ability to keep sensitive and general data separate by design, translate that decision into working access control, and debug a real production issue (an LLM output-truncation bug breaking quiz generation) rather than only designing on paper.`],
+        [`Relevance`, `It aligns with my goal of leading applied-AI product and engineering work where technical decisions must hold up under real constraints such as data privacy, faculty trust, and student wellbeing, not only in a slide deck.`]
+      ],
+      audience: [
+        [`Adaptations Made`, `The architecture reasoning was written so a non-engineering reviewer, such as an instructor or business stakeholder, could follow each trade-off without needing to trust it blindly, while the student-facing side of the prototype was written in supportive, non-clinical language appropriate for the students who actually use it.`],
+        [`Relevance`, `These adaptations make the artifact legible to both technical and non-technical audiences at once, which mirrors the reality of a technical leadership role.`]
+      ],
+      reflection: [
+        [`Significance`, `I selected this artifact because it best represents full-cycle ownership: business problem, architecture, working prototype, real API integration, and iterative hardening based on feedback, rather than analysis alone.`],
+        [`Lessons Learned`, `This project strengthened my understanding that a design principle only becomes real once implemented and tested, and that structured output from a language model needs to be engineered for graceful degradation, not just correctness.`]
+      ],
+      feedback: [
+        [`Feedback`, `Feedback focused on scoping faculty visibility to their own courses and students, making at-risk thresholds configurable per course, softening the student assistant's tone, reducing unnecessary visuals, and fixing a quiz feature that was failing outright.`],
+        [`Revisions`, `I implemented row-level, course-scoped access control for faculty; added a faculty-configurable alert threshold; rewrote student-facing language to frame weak areas as growth opportunities; made charts and diagrams appear only when requested; and rebuilt quiz generation into a real ten-question flow with graceful recovery from incomplete model output.`]
+      ],
+      references: `Anthropic. (2025). Claude API documentation. · Recharts: A composable charting library built on React components. · Lucide icon library documentation.`,
+      links: [[`📄 View Full Case Study →`, `https://claude.ai/public/artifacts/bd5df271-dcc7-49cb-a47a-1981c88634bc`]]
+    },
+    {
+      title: `AI Evolution Timeline`,
+      fullTitle: `AI Evolution Timeline — Key Milestones in the History of Artificial Intelligence`,
+      label: `AI HISTORY`, emoji: `🕰️🧠`,
+      accent: `#b7791f`, dark: `#6b4510`,
+      blurb: `Key milestones in AI history, from early research to modern deep learning.`,
+      intro: `The AI Evolution Timeline is an interactive visual artifact that highlights major milestones and breakthroughs in the development of artificial intelligence, from early research to modern deep learning breakthroughs.`,
+      objective: `I created this artifact to present the history of AI in a clear, engaging, and easy-to-understand format that makes technical progress more approachable.`,
+      process: `I identified key historical events in AI, organized them chronologically, and designed a timeline-based visual presentation that improves readability and engagement for viewers.`,
+      tools: [`Claude Artifacts`, `Generative AI-assisted design`, `Content organization`, `Timeline structuring`, `Visual storytelling`],
+      value: `This artifact shows my ability to translate complex technical history into a polished visual experience that supports learning, presentation, and communication.`,
+      links: [[`🔗 Explore the Timeline →`, `https://claude.ai/public/artifacts/50ec449b-a242-4d48-bad4-ad53ae4cb503`]]
+    },
+    {
+      title: `TripForge Chatbot`,
+      fullTitle: `TripForge — GPT-Powered USA Travel Planning Chatbot`,
+      label: `CUSTOM GPT`, emoji: `✈️🗺️`,
+      accent: `#ea580c`, dark: `#9a3412`,
+      blurb: `A GPT-powered chatbot that plans USA trips, routes, and itineraries.`,
+      intro: `TripForge is a GPT-based travel companion chatbot built to help users plan trips within the United States, including road trips, stop suggestions, and personalized itineraries.`,
+      objective: `I created this artifact to demonstrate how generative AI can be turned into a practical, user-friendly travel assistant that simplifies trip planning and improves decision-making.`,
+      process: `I designed the chatbot concept, structured the travel-planning workflow, defined prompt behavior, and organized the responses so the chatbot could provide clear, relevant, and helpful recommendations for different trip scenarios.`,
+      tools: [`ChatGPT`, `Custom GPT configuration`, `Prompt engineering`, `Conversational UX design`, `Structured travel-planning logic`],
+      value: `This artifact demonstrates my ability to build applied AI solutions that combine creativity, usability, and problem solving to deliver value in a real-world context.`,
+      links: [[`💬 Try TripForge →`, `https://chatgpt.com/g/g-69ac8a2b37f8819192c9693f2dcd6e5c-tripforge`]]
+    },
+    {
+      title: `Interactive ML Learning`,
+      fullTitle: `Interactive ML Learning with the Machine Learning Training Methods Coach`,
+      label: `GUIDED LEARNING`, emoji: `🧠📈`,
+      accent: `#4f46e5`, dark: `#312e81`,
+      blurb: `Machine learning concepts explored through guided questioning with an AI coach.`,
+      intro: `This artifact represents an interactive learning activity carried out using the Machine Learning Training Methods Coach, where core machine learning concepts were explored through guided questioning and step-by-step explanations.`,
+      objective: `I created this artifact to strengthen my understanding of machine learning concepts in a structured way and to demonstrate how complex topics can be broken down into simpler, intuitive explanations through active learning.`,
+      process: `I accessed the AI coach through the provided link and explored machine learning concepts by asking direct conceptual questions, follow-up questions, and simplification requests. The session progressed from understanding basic definitions to breaking concepts into smaller components such as nodes, hidden layers, training, and prediction. I repeatedly refined the explanations by asking for simpler wording, examples, and essay-style structure so that the concepts became easier to understand and communicate.`,
+      tools: [`Machine Learning Training Methods Coach (AI chatbot)`, `Web browser`, `Prompt-based learning`, `Interactive concept exploration`],
+      value: `This artifact demonstrates my ability to learn complex technical topics independently, ask meaningful questions, and convert difficult machine learning concepts into clear, structured, and easy-to-understand insights.`,
+      links: [[`🔗 Explore the Session →`, `https://student.schoolai.com/student-space?sessionId=cmmxnrhlx03ad5wxc2nbb0xdf`]]
+    },
+    {
+      title: `Data Challenges in AI`,
+      fullTitle: `Data Challenges in AI — Scenario-Based Learning with an AI Coach`,
+      label: `DATA QUALITY`, emoji: `🧹📊`,
+      accent: `#0e7490`, dark: `#164e63`,
+      blurb: `Missing, noisy, imbalanced, and time-series data, worked through four scenarios.`,
+      intro: `A scenario-based learning artifact built through guided interaction with an AI coach on real-world machine learning data challenges: missing data, noisy data, imbalanced datasets, and time-series gaps.`,
+      objective: `To build a stronger, decision-driven approach to diagnosing, solving, and validating data problems in machine learning.`,
+      process: [
+        `I worked through four guided scenarios using a consistent flow: understand, validate, decide, implement, evaluate, and refine.`,
+        `<strong>Scenario 1:</strong> Missing values in housing features were handled through diagnosis, imputation choices, and model-based validation.`,
+        `<strong>Scenario 2:</strong> Noisy churn features were analyzed using profiling, outlier checks, and business validation before cleaning.`,
+        `<strong>Scenario 3:</strong> Loan default imbalance was explored using baseline checks, resampling, class weights, and minority-class focused evaluation.`,
+        `<strong>Scenario 4:</strong> Time-series gaps were handled through reindexing, interpolation, seasonal reasoning, and hold-out validation.`
+      ],
+      tools: [`School AI`, `ChatGPT`, `Python concepts`, `Pandas`, `Scikit-learn`, `Z-score`, `IQR`, `STL`, `ACF`, `SMOTE`],
+      value: `This artifact shows a structured, production-oriented way of approaching data challenges using validation, business context, and measurable decisions.`,
+      reflection: [[`Lessons Learned`, `The biggest shift was moving from applying techniques directly to making informed choices based on context, impact, and validation.`]],
+      links: [[`🔗 Explore the Session →`, `https://student.schoolai.com/student-space?sessionId=cmn58u180017jqw60aq8ywb7x`]]
+    },
+    {
+      title: `Self-Assessment Journey`,
+      fullTitle: `Self-Assessment Journey — Growth Across the AIML Course`,
+      label: `REFLECTION`, emoji: `🪞📝`,
+      accent: `#475569`, dark: `#1e293b`,
+      blurb: `How my leadership, AI/ML understanding, and direction evolved during the course.`,
+      intro: `This artifact presents my self-assessment journey from the start to the end of the AIML course. It captures how my thinking, confidence, and leadership perspective evolved over time.`,
+      objective: `I created this artifact to reflect on my growth during the course and to clearly show how my understanding of AI/ML, leadership, communication, and professional direction developed through learning and self-evaluation.`,
+      process: `I compared my start-of-course and end-of-course self-assessments, identified the most important growth areas, and organized them into a structured reflection. The focus was not only on how my scores changed, but also on how my mindset changed in areas such as communication, AI/ML application, leadership, and iterative learning.`,
+      tools: [`Self-assessment forms`, `Reflective analysis`, `Structured comparison`, `Google Sites`, `Portfolio design`],
+      value: `This artifact adds depth to my portfolio by showing not just what I learned, but how I evolved. It highlights self-awareness, reflection, and the ability to connect learning with long-term professional growth.`,
+      reflection: [[`What Changed`, `The biggest shift for me was moving from mainly focusing on technical execution to thinking more about communication, leadership, AI/ML application in real systems, and the impact of the solutions I build.`]]
+    },
+    {
+      title: `AI Industry Newsletter`,
+      fullTitle: `AI Industry Newsletter — A Monthly Publication on Applied Business AI`,
+      label: `PUBLICATION`, emoji: `📰📬`,
+      accent: `#be185d`, dark: `#831843`,
+      blurb: `A live monthly publication on how businesses across industries apply AI.`,
+      intro: `This artifact is a live AI industry newsletter designed as a recurring monthly publication. It focuses on how AI is being used in real business settings across industries rather than only covering technical announcements.`,
+      objective: `I created this artifact to analyze current AI developments through a business lens and present them in a professional, readable, and engaging format. The goal was to move beyond general AI news and focus on practical business impact.`,
+      process: `I researched current AI products, industry developments, and real-world implementations, selected relevant use cases across industries, analyzed their business value, and structured the findings into a clean digital publication. I then published it as a live web-based artifact to make it scalable and reusable as a monthly series.`,
+      tools: [`AI research workflows`, `Web publishing`, `GitHub Pages`, `Structured content design`, `Trend analysis`, `Newsletter-style digital presentation`],
+      value: `This artifact demonstrates my ability to translate technical AI developments into business-focused insights, design content as a repeatable digital product, and present analysis in a format that is both professional and scalable.`,
+      reflection: [[`Lessons Learned`, `The biggest shift for me was moving from simply reading AI updates to actively interpreting how those developments affect workflows, decisions, and business value in real-world environments.`]],
+      links: [[`📰 Open the Newsletter →`, `https://sagar-alande.github.io/newsletter-site/`]]
+    },
+    {
+      title: `EAED Framework`,
+      fullTitle: `Enterprise AI Ethical Decision-Making Framework for Responsible Generative AI Adoption`,
+      label: `AI GOVERNANCE`, emoji: `⚖️🧭`,
+      accent: `#7c4de0`, dark: `#4a2e6b`,
+      blurb: `Enterprise AI Ethical Decision-Making framework for responsible adoption.`,
+      intro: `This artifact documents the Enterprise AI Ethical Decision-Making (EAED) Framework developed during Week 5 of the Generative AI course. Created from the perspective of the Chief Technology Officer of NovaTech Solutions, the framework provides a practical process for making ethical and strategic AI decisions. It transforms ethical principles into operational governance through decision rules, approval criteria, escalation paths, and governance checkpoints.`,
+      objective: `Design a repeatable enterprise framework that helps executive leaders balance innovation, business value, ethics, governance, security, and compliance when approving AI initiatives.`,
+      process: `This was an individual assignment. I researched enterprise AI governance, responsible AI frameworks, and ethical decision-making. I designed the framework, validated it using multiple enterprise scenarios, refined it through several iterations, and produced a reusable executive decision model.`,
+      tools: [`Generative AI`, `Enterprise AI Governance Frameworks`, `RAG Concepts`, `Enterprise Architecture Principles`, `Scholarly Research`, `APA Sources`],
+      value: [
+        [`Unique Value`, `This artifact demonstrates executive leadership, strategic planning, ethical decision-making, enterprise AI governance, and the ability to convert research into a practical governance framework.`],
+        [`Relevance`, `It aligns with my professional goal of leading enterprise AI initiatives that deliver measurable business value while maintaining security, compliance, and stakeholder trust.`]
+      ],
+      audience: [
+        [`Adaptations Made`, `The artifact was written for executive leaders rather than technical specialists. Technical concepts were translated into business language and supported with practical enterprise scenarios.`],
+        [`Relevance`, `These adaptations make the framework relevant to technology executives, AI governance committees, and organizations adopting generative AI.`]
+      ],
+      reflection: [
+        [`Significance`, `I selected this artifact because it best represents my leadership approach to enterprise AI. It demonstrates my ability to develop a practical governance framework instead of simply analyzing AI concepts.`],
+        [`Lessons Learned`, `This assignment strengthened my understanding of enterprise AI governance, executive decision-making, and responsible AI adoption. It also improved my ability to transform research into a reusable framework that organizations can apply across different industries.`]
+      ],
+      feedback: [
+        [`Feedback`, `Feedback focused on making the framework operational instead of theoretical. It also emphasized clearer governance checkpoints, decision rules, and executive accountability.`],
+        [`Revisions`, `I expanded the framework by adding approval criteria, escalation paths, governance checkpoints, documentation requirements, practical enterprise scenarios, and biblical stewardship principles that complement modern AI governance.`]
+      ],
+      references: `Floridi, L., Cowls, J., et al. (2018). AI4People: An ethical framework for a good AI society. · Jobin, A., Ienca, M., &amp; Vayena, E. (2019). The global landscape of AI ethics guidelines. · NIST. Artificial Intelligence Risk Management Framework (AI RMF 1.0). · OECD AI Principles. · European Union AI Act.`,
+      // TODO: replace with the EAED case study link (currently the same document as the RAG case study).
+      links: [[`📄 View Full Case Study →`, `https://docs.google.com/document/d/1ykdica8-AFqmgxHrD2Hn5f7Ycl4VicXV/edit?usp=sharing&ouid=114690808503887997417&rtpof=true&sd=true`]]
+    }
+  ];
+
+  var root = document.getElementById('aiml-portfolio');
+  var grid = document.getElementById('ap-grid');
+  var overlay = document.getElementById('ap-overlay');
+  var dialog = document.getElementById('ap-dialog');
+  var titleEl = document.getElementById('ap-dialog-title');
+  var body = document.getElementById('ap-dialog-body');
+  var closeBtn = document.getElementById('ap-close');
+  var lastCard = null;
+
+  function setColors(el, a){
+    el.style.setProperty('--ap-accent', a.accent);
+    el.style.setProperty('--ap-dark', a.dark);
+    el.style.setProperty('--ap-soft', a.accent + '1f');
+  }
+
+  function paragraphs(text){
+    return [].concat(text).map(function(t){ return '<p>' + t + '</p>'; }).join('');
+  }
+
+  function isPairs(x){ return Array.isArray(x) && Array.isArray(x[0]); }
+
+  function sub(label, html){
+    return '<div class="ap-sub"><div class="ap-sub-label">' + label + '</div>' + html + '</div>';
+  }
+
+  function content(x){
+    if (!isPairs(x)) return paragraphs(x);
+    return x.map(function(p){ return sub(p[0], paragraphs(p[1])); }).join('');
+  }
+
+  function section(title, html, extraClass){
+    return '<div class="ap-sec' + (extraClass ? ' ' + extraClass : '') + '">' +
+      '<div class="ap-sec-title">' + title + '</div>' + html + '</div>';
+  }
+
+  function render(a){
+    var html = '';
+    if (a.intro) html += section('📘 Introduction', paragraphs(a.intro));
+
+    var desc = '';
+    if (a.objective) desc += sub('Objective', paragraphs(a.objective));
+    if (a.process) desc += sub('Process', paragraphs(a.process));
+    if (a.tools) desc += sub('Tools and Technologies Used', '<div class="ap-chips">' +
+      a.tools.map(function(t){ return '<span class="ap-chip">' + t + '</span>'; }).join('') + '</div>');
+    if (desc) html += section('🧩 Artifact Description', desc);
+
+    if (a.value) html += section('💡 Artifact-Specific Value Proposition', content(a.value));
+    if (a.audience) html += section('🎯 Customization for Audience', content(a.audience));
+    if (a.reflection) html += section('🪞 Reflection', content(a.reflection));
+    if (a.feedback) html += section('🔁 Feedback and Revisions', content(a.feedback));
+    if (a.references) html += section('📚 References', paragraphs(a.references), 'ap-refs');
+
+    if (a.links && a.links.length){
+      html += '<div class="ap-links">' + a.links.map(function(l){
+        return '<a class="ap-btn" href="' + l[1] + '" target="_blank" rel="noopener noreferrer">' + l[0] + '</a>';
+      }).join('') + '</div>';
+    }
+    return html;
+  }
+
+  function openArtifact(i, card){
+    var a = ARTIFACTS[i];
+    lastCard = card;
+    setColors(dialog, a);
+    titleEl.textContent = a.fullTitle || a.title;
+    body.innerHTML = render(a);
+    overlay.hidden = false;
+    body.scrollTop = 0;
+
+    // Google Sites shows embeds in a fixed-height frame, so the popup is placed
+    // next to the card that was clicked instead of in the middle of the frame.
+    var margin = 16;
+    var needed = dialog.offsetHeight + margin * 2;
+    if (root.offsetHeight < needed) root.style.minHeight = needed + 'px';
+    var cardTop = card.getBoundingClientRect().top - root.getBoundingClientRect().top;
+    var maxTop = root.offsetHeight - dialog.offsetHeight - margin;
+    dialog.style.top = Math.max(margin, Math.min(cardTop, maxTop)) + 'px';
+
+    try { dialog.scrollIntoView({ block: 'nearest', behavior: 'smooth' }); } catch (e) {}
+    closeBtn.focus({ preventScroll: true });
+  }
+
+  function closeArtifact(){
+    if (overlay.hidden) return;
+    overlay.hidden = true;
+    root.style.minHeight = '';
+    if (lastCard) lastCard.focus({ preventScroll: true });
+  }
+
+  ARTIFACTS.forEach(function(a, i){
+    var card = document.createElement('div');
+    card.className = 'ap-card';
+    card.setAttribute('role', 'button');
+    card.setAttribute('tabindex', '0');
+    card.setAttribute('aria-haspopup', 'dialog');
+    card.setAttribute('aria-label', a.title + ': view details');
+    setColors(card, a);
+    card.innerHTML =
+      '<div class="ap-card-art">' +
+        '<div class="ap-card-label">' + a.label + '</div>' +
+        '<div class="ap-card-emoji" aria-hidden="true">' + a.emoji + '</div>' +
+      '</div>' +
+      '<div class="ap-card-body">' +
+        '<h3>' + a.title + '</h3>' +
+        '<p>' + a.blurb + '</p>' +
+        '<span class="ap-pill">View Details →</span>' +
+      '</div>';
+    card.addEventListener('click', function(){ openArtifact(i, card); });
+    card.addEventListener('keydown', function(e){
+      if (e.key === 'Enter' || e.key === ' '){ e.preventDefault(); openArtifact(i, card); }
+    });
+    grid.appendChild(card);
+  });
+
+  closeBtn.addEventListener('click', closeArtifact);
+  overlay.addEventListener('click', function(e){ if (e.target === overlay) closeArtifact(); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeArtifact(); });
+})();
+</script>
