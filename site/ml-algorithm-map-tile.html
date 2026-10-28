@@ -1,0 +1,434 @@
+<div id="aiml-portfolio" class="ap-single">
+  <div class="ap-wrap">
+    <div class="ap-grid" id="ap-grid"></div>
+  </div>
+
+  <div class="ap-overlay" id="ap-overlay" hidden>
+    <div class="ap-dialog" id="ap-dialog" role="dialog" aria-modal="true" aria-labelledby="ap-dialog-title">
+      <div class="ap-dialog-head" id="ap-dialog-head">
+        <button type="button" class="ap-close" id="ap-close" aria-label="Close">✕</button>
+        <div class="ap-dialog-eyebrow">ARTIFACT TITLE</div>
+        <h3 id="ap-dialog-title"></h3>
+      </div>
+      <div class="ap-dialog-body" id="ap-dialog-body"></div>
+    </div>
+  </div>
+</div>
+
+<style>
+#aiml-portfolio{
+  position: relative;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #0f1720;
+  background: #f6f8fb;
+  margin: 0;
+}
+#aiml-portfolio *{ box-sizing: border-box; }
+
+#aiml-portfolio .ap-wrap{
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+#aiml-portfolio .ap-eyebrow{
+  font-family: 'Courier New', monospace;
+  font-size: 12px;
+  letter-spacing: 2.5px;
+  color: #2f80ed;
+  margin-bottom: 8px;
+}
+#aiml-portfolio .ap-title{
+  margin: 0 0 8px;
+  font-size: 28px;
+  color: #0d1b2a;
+  font-weight: 800;
+}
+#aiml-portfolio .ap-intro{
+  margin: 0 0 24px;
+  font-size: 14.5px;
+  color: #5a6b80;
+  line-height: 1.6;
+}
+
+/* ---------- Cards ---------- */
+#aiml-portfolio .ap-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+}
+#aiml-portfolio .ap-card{
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  background: #ffffff;
+  border: 1px solid #e3e9f0;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(13,27,42,0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+#aiml-portfolio .ap-card:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(13,27,42,0.14);
+}
+#aiml-portfolio .ap-card:focus-visible{
+  outline: 3px solid #2f80ed;
+  outline-offset: 3px;
+}
+#aiml-portfolio .ap-card-art{
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: linear-gradient(135deg, var(--ap-dark), var(--ap-accent));
+}
+#aiml-portfolio .ap-card-label{
+  font-family: 'Courier New', monospace;
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 10px;
+}
+#aiml-portfolio .ap-card-emoji{
+  font-size: 46px;
+  line-height: 1.2;
+}
+#aiml-portfolio .ap-card-body{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 22px;
+}
+#aiml-portfolio .ap-card-body h3{
+  margin: 0 0 8px;
+  color: #0d1b2a;
+  font-size: 19px;
+}
+#aiml-portfolio .ap-card-body p{
+  flex: 1;
+  margin: 0 0 14px;
+  font-size: 13.5px;
+  color: #5a6b80;
+  line-height: 1.6;
+}
+#aiml-portfolio .ap-pill{
+  align-self: center;
+  background: var(--ap-soft);
+  color: var(--ap-dark);
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 12.5px;
+  font-weight: 700;
+}
+
+/* ---------- Detail popup ---------- */
+#aiml-portfolio .ap-overlay{
+  position: absolute;
+  inset: 0;
+  background: rgba(13,27,42,0.65);
+  z-index: 9999;
+}
+#aiml-portfolio .ap-overlay[hidden]{ display: none; }
+#aiml-portfolio .ap-dialog{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 32px);
+  max-width: 700px;
+  max-height: 720px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+#aiml-portfolio .ap-dialog-head{
+  position: relative;
+  flex-shrink: 0;
+  padding: 28px 60px 22px 28px;
+  background: linear-gradient(135deg, #0d1b2a, var(--ap-dark));
+}
+#aiml-portfolio .ap-dialog-eyebrow{
+  font-family: 'Courier New', monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 8px;
+}
+#aiml-portfolio .ap-dialog-head h3{
+  margin: 0;
+  font-size: 21px;
+  color: #ffffff;
+  font-weight: 800;
+  line-height: 1.4;
+}
+#aiml-portfolio .ap-close{
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+}
+#aiml-portfolio .ap-close:hover{ background: rgba(255,255,255,0.28); }
+#aiml-portfolio .ap-close:focus-visible{ outline: 3px solid #ffffff; outline-offset: 2px; }
+#aiml-portfolio .ap-dialog-body{
+  overflow-y: auto;
+  padding: 10px 28px 28px;
+}
+#aiml-portfolio .ap-sec{
+  border-bottom: 1px solid #e3e9f0;
+  padding: 18px 0;
+}
+#aiml-portfolio .ap-sec:last-of-type{ border-bottom: none; }
+#aiml-portfolio .ap-sec-title{
+  font-weight: 800;
+  font-size: 15px;
+  color: #0d1b2a;
+  margin-bottom: 10px;
+}
+#aiml-portfolio .ap-sub{ margin-bottom: 16px; }
+#aiml-portfolio .ap-sub:last-child{ margin-bottom: 0; }
+#aiml-portfolio .ap-sub-label{
+  font-weight: 700;
+  font-size: 13.5px;
+  color: var(--ap-dark);
+  margin-bottom: 6px;
+  font-style: italic;
+}
+#aiml-portfolio .ap-sec p{
+  margin: 0 0 10px;
+  font-size: 14px;
+  line-height: 1.75;
+  color: #3a4a5e;
+}
+#aiml-portfolio .ap-sec p:last-child{ margin-bottom: 0; }
+#aiml-portfolio .ap-sec.ap-refs p{
+  font-size: 13.5px;
+  color: #5a6b80;
+}
+#aiml-portfolio .ap-chips{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+#aiml-portfolio .ap-chip{
+  background: var(--ap-soft);
+  color: var(--ap-dark);
+  border-radius: 16px;
+  padding: 5px 12px;
+  font-size: 12.5px;
+}
+#aiml-portfolio .ap-links{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 22px;
+}
+#aiml-portfolio .ap-btn{
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  background: var(--ap-accent);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 14.5px;
+  border-radius: 10px;
+  padding: 14px 20px;
+}
+#aiml-portfolio .ap-btn:hover{ filter: brightness(0.92); }
+#aiml-portfolio .ap-btn-alt{
+  background: var(--ap-soft);
+  color: var(--ap-dark);
+  border: 1px solid var(--ap-accent);
+}
+
+/* Single tile: one centered card */
+#aiml-portfolio.ap-single .ap-grid{
+  grid-template-columns: minmax(0, 340px);
+  justify-content: center;
+}
+
+@media (max-width: 600px){
+  #aiml-portfolio .ap-wrap{ padding: 28px 16px; }
+  #aiml-portfolio .ap-dialog-head{ padding: 22px 56px 18px 20px; }
+  #aiml-portfolio .ap-dialog-head h3{ font-size: 18px; }
+  #aiml-portfolio .ap-dialog-body{ padding: 6px 20px 22px; }
+}
+</style>
+
+<script>
+(function(){
+  /*
+    To add a new artifact, copy one object below and edit it.
+    Section fields are optional; leave one out and that section is not shown.
+    A section can be plain text, a list of paragraphs, or a list of [label, text] pairs.
+  */
+  var ARTIFACTS = [
+    {
+      title: `ML Algorithm Map`,
+      fullTitle: `Machine Learning Algorithm Map — A Visual Framework for Twelve ML Algorithms`,
+      label: `MODEL DEVELOPMENT`, emoji: `🗺️⚙️`,
+      accent: `#15803d`, dark: `#14532d`,
+      blurb: `Twelve ML algorithms mapped by how they learn, their model family, and where they are used.`,
+      intro: `This artifact is a visual framework that organizes twelve machine learning algorithms by how they learn, which model family they belong to, and where they are used. It was developed for AIML-501: Model Development and is paired with an APA paper that explains how each algorithm was classified and reflects on what I learned while building the map.`,
+      objective: `Create an infographic that classifies each algorithm by learning type, application domain (Tabular Data, Computer Vision, NLP, Generative AI), real-world use cases, and a brief explanation of how it works, while clearly showing how the algorithms relate to and differ from one another.`,
+      process: [
+        `This was an individual assignment. I selected twelve algorithms so that every learning type and every domain was covered: linear and logistic regression, decision trees, random forests, support vector machines, and k nearest neighbors for classical supervised learning; k-means and PCA for classical unsupervised learning; and CNNs, RNNs, transformers, and GANs for deep learning.`,
+        `I classified each algorithm on three levels: how it learns (supervised, unsupervised, or self-supervised), which model family it belongs to (classical ML or deep learning), and the algorithm itself. A concept map shows that hierarchy at a glance, and a numbered comparison chart lets the reader compare type, domains, how it works, and example uses down each column.`,
+        `Three algorithms needed careful judgment. The transformer received its own self-supervised branch, drawn with a dashed outline, because its pretraining has no human labels. The GAN was placed under unsupervised because it learns from unlabeled images. The RNN was limited to NLP because time series is sequence data, not tabular data. A domain is marked only where the algorithm is commonly used today, not where it could be applied in theory.`
+      ],
+      tools: [`Visual design tool`, `Concept map`, `Comparison chart`, `Generative AI (concept clarification)`, `Course resources`, `APA 7th edition`],
+      value: [
+        [`Unique Value`, `This artifact shows that I can turn a long list of algorithms into one connected picture. It organizes the field around a few clear decisions, makes the exceptions visible instead of hiding them, and highlights relationships such as decision tree to random forest, RNN to transformer, and KNN versus k-means.`],
+        [`Relevance`, `In financial services, most of my data is tabular, such as collateral and margin records. The classical side of the map, especially random forests and k-means, fits problems like flagging unusual records or grouping similar positions for review, while the deep learning side connects to the transformer-based applications I build. The map helps me choose a model based on the problem rather than on what is popular.`]
+      ],
+      audience: [
+        [`Adaptations Made`, `The map is designed to be read from top to bottom, then used as a reference. Each algorithm is numbered so the reader can move from the concept map to its row in the comparison chart. Learning types are color-coded, domains are tagged on every algorithm, and a small nested diagram shows how AI, machine learning, deep learning, and generative AI fit inside one another.`],
+        [`Relevance`, `These choices let a reader compare twelve algorithms quickly without prior knowledge of each one, while still giving enough detail to explain how each algorithm works and where it is used.`]
+      ],
+      reflection: [
+        [`Significance`, `Rebuilding the infographic as a concept map changed how I think about the subject. Instead of memorizing algorithms one at a time, I started seeing a small number of decisions that sort all of them.`],
+        [`Lessons Learned`, `Real algorithms do not respect clean categories. I learned to define each category by a test I can apply consistently, such as whether the model needs human labels, and then make the exceptions visible. Seeing the decision tree next to the random forest also connected back to the earlier fruit classification activity and showed me why ensembles exist: many trees voting together reduce the overfitting of a single tree.`]
+      ],
+      feedback: [
+        [`Self-Review`, `My first version was a grid of cards, one per algorithm. Each card was accurate, but when I checked it against the goal of showing how the algorithms relate, it presented twelve separate facts rather than one connected picture.`],
+        [`Revisions`, `I rebuilt it as a color-coded concept map with a connections panel and a comparison chart. I also used a generative AI tool to clarify how transformers are trained and checked those answers against the assigned resources before using them.`]
+      ],
+      references: `Cloud Simplified. (2024, April 29). What is generative AI | Unraveling the differences between AI, ML, DL, and GenAI [Video]. YouTube. · Costa, B., &amp; Trojahan, M. (2024, August 28). What are the differences between AI, ML, DL, and Gen AI? e-Core.`,
+      links: [
+        [`🔍 Dive Deep →`, `https://sites.google.com/view/sagar-s-alande/ml_algorith_map`],
+        [`🗺️ View the Infographic →`, `https://sagar-alande.github.io/ml-algorithm-map/`]
+      ]
+    }
+  ];
+
+  var root = document.getElementById('aiml-portfolio');
+  var grid = document.getElementById('ap-grid');
+  var overlay = document.getElementById('ap-overlay');
+  var dialog = document.getElementById('ap-dialog');
+  var titleEl = document.getElementById('ap-dialog-title');
+  var body = document.getElementById('ap-dialog-body');
+  var closeBtn = document.getElementById('ap-close');
+  var lastCard = null;
+
+  function setColors(el, a){
+    el.style.setProperty('--ap-accent', a.accent);
+    el.style.setProperty('--ap-dark', a.dark);
+    el.style.setProperty('--ap-soft', a.accent + '1f');
+  }
+
+  function paragraphs(text){
+    return [].concat(text).map(function(t){ return '<p>' + t + '</p>'; }).join('');
+  }
+
+  function isPairs(x){ return Array.isArray(x) && Array.isArray(x[0]); }
+
+  function sub(label, html){
+    return '<div class="ap-sub"><div class="ap-sub-label">' + label + '</div>' + html + '</div>';
+  }
+
+  function content(x){
+    if (!isPairs(x)) return paragraphs(x);
+    return x.map(function(p){ return sub(p[0], paragraphs(p[1])); }).join('');
+  }
+
+  function section(title, html, extraClass){
+    return '<div class="ap-sec' + (extraClass ? ' ' + extraClass : '') + '">' +
+      '<div class="ap-sec-title">' + title + '</div>' + html + '</div>';
+  }
+
+  function render(a){
+    var html = '';
+    if (a.intro) html += section('📘 Introduction', paragraphs(a.intro));
+
+    var desc = '';
+    if (a.objective) desc += sub('Objective', paragraphs(a.objective));
+    if (a.process) desc += sub('Process', paragraphs(a.process));
+    if (a.tools) desc += sub('Tools and Technologies Used', '<div class="ap-chips">' +
+      a.tools.map(function(t){ return '<span class="ap-chip">' + t + '</span>'; }).join('') + '</div>');
+    if (desc) html += section('🧩 Artifact Description', desc);
+
+    if (a.value) html += section('💡 Artifact-Specific Value Proposition', content(a.value));
+    if (a.audience) html += section('🎯 Customization for Audience', content(a.audience));
+    if (a.reflection) html += section('🪞 Reflection', content(a.reflection));
+    if (a.feedback) html += section('🔁 Feedback and Revisions', content(a.feedback));
+    if (a.references) html += section('📚 References', paragraphs(a.references), 'ap-refs');
+
+    if (a.links && a.links.length){
+      html += '<div class="ap-links">' + a.links.map(function(l, j){
+        return '<a class="ap-btn' + (j ? ' ap-btn-alt' : '') + '" href="' + l[1] + '" target="_blank" rel="noopener noreferrer">' + l[0] + '</a>';
+      }).join('') + '</div>';
+    }
+    return html;
+  }
+
+  function openArtifact(i, card){
+    var a = ARTIFACTS[i];
+    lastCard = card;
+    setColors(dialog, a);
+    titleEl.textContent = a.fullTitle || a.title;
+    body.innerHTML = render(a);
+    overlay.hidden = false;
+    body.scrollTop = 0;
+
+    // Google Sites shows embeds in a fixed-height frame, so the popup is placed
+    // next to the card that was clicked instead of in the middle of the frame.
+    var margin = 16;
+    var needed = dialog.offsetHeight + margin * 2;
+    if (root.offsetHeight < needed) root.style.minHeight = needed + 'px';
+    var cardTop = card.getBoundingClientRect().top - root.getBoundingClientRect().top;
+    var maxTop = root.offsetHeight - dialog.offsetHeight - margin;
+    dialog.style.top = Math.max(margin, Math.min(cardTop, maxTop)) + 'px';
+
+    try { dialog.scrollIntoView({ block: 'nearest', behavior: 'smooth' }); } catch (e) {}
+    closeBtn.focus({ preventScroll: true });
+  }
+
+  function closeArtifact(){
+    if (overlay.hidden) return;
+    overlay.hidden = true;
+    root.style.minHeight = '';
+    if (lastCard) lastCard.focus({ preventScroll: true });
+  }
+
+  ARTIFACTS.forEach(function(a, i){
+    var card = document.createElement('div');
+    card.className = 'ap-card';
+    card.setAttribute('role', 'button');
+    card.setAttribute('tabindex', '0');
+    card.setAttribute('aria-haspopup', 'dialog');
+    card.setAttribute('aria-label', a.title + ': view details');
+    setColors(card, a);
+    card.innerHTML =
+      '<div class="ap-card-art">' +
+        '<div class="ap-card-label">' + a.label + '</div>' +
+        '<div class="ap-card-emoji" aria-hidden="true">' + a.emoji + '</div>' +
+      '</div>' +
+      '<div class="ap-card-body">' +
+        '<h3>' + a.title + '</h3>' +
+        '<p>' + a.blurb + '</p>' +
+        '<span class="ap-pill">View Details →</span>' +
+      '</div>';
+    card.addEventListener('click', function(){ openArtifact(i, card); });
+    card.addEventListener('keydown', function(e){
+      if (e.key === 'Enter' || e.key === ' '){ e.preventDefault(); openArtifact(i, card); }
+    });
+    grid.appendChild(card);
+  });
+
+  closeBtn.addEventListener('click', closeArtifact);
+  overlay.addEventListener('click', function(e){ if (e.target === overlay) closeArtifact(); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeArtifact(); });
+})();
+</script>
